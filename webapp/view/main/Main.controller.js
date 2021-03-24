@@ -9,7 +9,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                 new sap.ui.model.json.JSONModel({
                     table: [],
                     visible: '',
-                    rows: 20,
+                    rows: 20
                 })
             );
 
@@ -32,8 +32,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                 processData: false,
                 contentType: false,
                 headers: {
-                    'Accept-Language': 'zh',
-                },
+                    'Accept-Language': 'zh'
+                }
             })
                 .done(function (res) {
                     me.createButton('box', res, oData.rows, api, function (res) {
@@ -42,7 +42,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                             oData.table.push({
                                 row: v.row,
                                 sfc: v.sfc,
-                                item: v.itemBo.split(',')[1],
+                                item: v.itemBo.split(',')[1]
                             });
                         });
                         me.getView().getModel().refresh();
@@ -103,8 +103,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                                     press: click,
                                     customData: new sap.ui.core.CustomData({
                                         key: 'page',
-                                        value: nPage - 5,
-                                    }),
+                                        value: nPage - 5
+                                    })
                                 })
                             );
                         }
@@ -116,8 +116,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                                     press: link,
                                     customData: new sap.ui.core.CustomData({
                                         key: 'page',
-                                        value: i + 1,
-                                    }),
+                                        value: i + 1
+                                    })
                                 })
                             );
                         }
@@ -130,8 +130,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                                     press: click,
                                     customData: new sap.ui.core.CustomData({
                                         key: 'page',
-                                        value: nPage + 5,
-                                    }),
+                                        value: nPage + 5
+                                    })
                                 })
                             );
                         }
@@ -147,8 +147,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                                     press: click,
                                     customData: new sap.ui.core.CustomData({
                                         key: 'page',
-                                        value: nPage - 5,
-                                    }),
+                                        value: nPage - 5
+                                    })
                                 })
                             );
                             // 頁數按鈕
@@ -159,8 +159,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                                         press: link,
                                         customData: new sap.ui.core.CustomData({
                                             key: 'page',
-                                            value: i + 1,
-                                        }),
+                                            value: i + 1
+                                        })
                                     })
                                 );
                             }
@@ -173,7 +173,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                     item.push(
                         new sap.ui.core.Item({
                             key: oData.rows * (i + 1),
-                            text: oData.rows * (i + 1),
+                            text: oData.rows * (i + 1)
                         })
                     );
                 }
@@ -182,7 +182,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                         id: 'select',
                         selectedKey: oData.visible,
                         items: item,
-                        change: sChange,
+                        change: sChange
                     })
                 );
             };
@@ -212,8 +212,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                     processData: false,
                     contentType: false,
                     headers: {
-                        'Accept-Language': 'zh',
-                    },
+                        'Accept-Language': 'zh'
+                    }
                 })
                     .done(function (res) {
                         result(res);
@@ -243,8 +243,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                                 press: click,
                                 customData: new sap.ui.core.CustomData({
                                     key: 'page',
-                                    value: nPage - 5,
-                                }),
+                                    value: nPage - 5
+                                })
                             })
                         );
                     }
@@ -256,8 +256,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                                 press: link,
                                 customData: new sap.ui.core.CustomData({
                                     key: 'page',
-                                    value: i + 1,
-                                }),
+                                    value: i + 1
+                                })
                             })
                         );
                     }
@@ -270,8 +270,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                                 press: click,
                                 customData: new sap.ui.core.CustomData({
                                     key: 'page',
-                                    value: nPage + 5,
-                                }),
+                                    value: nPage + 5
+                                })
                             })
                         );
                     }
@@ -287,8 +287,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                                 press: click,
                                 customData: new sap.ui.core.CustomData({
                                     key: 'page',
-                                    value: nPage - 5,
-                                }),
+                                    value: nPage - 5
+                                })
                             })
                         );
                         // 頁數按鈕
@@ -299,8 +299,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                                     press: link,
                                     customData: new sap.ui.core.CustomData({
                                         key: 'page',
-                                        value: i + 1,
-                                    }),
+                                        value: i + 1
+                                    })
                                 })
                             );
                         }
@@ -311,7 +311,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                     item.push(
                         new sap.ui.core.Item({
                             key: oData.rows * (i + 1),
-                            text: oData.rows * (i + 1),
+                            text: oData.rows * (i + 1)
                         })
                     );
                 }
@@ -320,7 +320,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                         id: 'select',
                         selectedKey: oData.visible,
                         items: item,
-                        change: sChange,
+                        change: sChange
                     })
                 );
                 me.getView().getModel().refresh();
@@ -336,8 +336,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                             press: link,
                             customData: new sap.ui.core.CustomData({
                                 key: 'page',
-                                value: i + 1,
-                            }),
+                                value: i + 1
+                            })
                         })
                     );
                 }
@@ -348,8 +348,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                         press: click,
                         customData: new sap.ui.core.CustomData({
                             key: 'page',
-                            value: 5,
-                        }),
+                            value: 5
+                        })
                     })
                 );
             } else {
@@ -360,8 +360,8 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                             press: link,
                             customData: new sap.ui.core.CustomData({
                                 key: 'page',
-                                value: i + 1,
-                            }),
+                                value: i + 1
+                            })
                         })
                     );
                 }
@@ -373,7 +373,7 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                 item.push(
                     new sap.ui.core.Item({
                         key: oData.rows * (i + 1),
-                        text: oData.rows * (i + 1),
+                        text: oData.rows * (i + 1)
                     })
                 );
             }
@@ -382,9 +382,9 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                     id: 'select',
                     selectedKey: oData.visible,
                     items: item,
-                    change: sChange,
+                    change: sChange
                 })
             );
-        },
+        }
     });
 });
