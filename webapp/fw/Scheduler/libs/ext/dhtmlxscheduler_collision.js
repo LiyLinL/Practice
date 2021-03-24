@@ -1,0 +1,11 @@
+/*
+
+@license
+dhtmlxScheduler v.5.3.10 Professional
+
+This software is covered by DHTMLX Commercial License. Usage without proper license is prohibited.
+
+(c) XB Software Ltd.
+
+*/
+Scheduler.plugin(function(e){(function(){var t;var n;e.config.collision_limit=1;function i(n){var i=e._get_section_view();if(i&&n){t=e.getEvent(n)[e._get_section_property()]}}e.attachEvent("onBeforeDrag",function(e){i(e);return true});e.attachEvent("onBeforeLightbox",function(t){var r=e.getEvent(t);n=[r.start_date,r.end_date];i(t);return true});e.attachEvent("onEventChanged",function(t){if(!t||!e.getEvent(t))return true;var i=e.getEvent(t);if(!e.checkCollision(i)){if(!n)return false;i.start_date=n[0];i.end_date=n[1];i._timed=this.isOneDayEvent(i)}return true});e.attachEvent("onBeforeEventChanged",function(t,n,i){return e.checkCollision(t)});e.attachEvent("onEventAdded",function(t,n){var i=e.checkCollision(n);if(!i)e.deleteEvent(t)});e.attachEvent("onEventSave",function(t,n,i){n=e._lame_clone(n);n.id=t;if(!(n.start_date&&n.end_date)){var r=e.getEvent(t);n.start_date=new Date(r.start_date);n.end_date=new Date(r.end_date)}if(n.rec_type){e._roll_back_dates(n)}return e.checkCollision(n)});e._check_sections_collision=function(t,n){var i=e._get_section_property();if(t[i]==n[i]&&t.id!=n.id)return true;return false};e.checkCollision=function(n){var i=[];var r=e.config.collision_limit;if(n.rec_type){var a=e.getRecDates(n);for(var o=0;o<a.length;o++){var c=e.getEvents(a[o].start_date,a[o].end_date);for(var v=0;v<c.length;v++){if((c[v].event_pid||c[v].id)!=n.id)i.push(c[v])}}}else{i=e.getEvents(n.start_date,n.end_date);for(var _=0;_<i.length;_++){var l=i[_];if(l.id==n.id||l.event_length&&[l.event_pid,l.event_length].join("#")==n.id){i.splice(_,1);break}}}var d=e._get_section_view();var f=e._get_section_property();var s=true;if(d){var u=0;for(var _=0;_<i.length;_++){if(i[_].id!=n.id&&this._check_sections_collision(i[_],n))u++}if(u>=r){s=false}}else{if(i.length>=r)s=false}if(!s){var g=!e.callEvent("onEventCollision",[n,i]);if(!g){n[f]=t||n[f]}return g}return s}})()});

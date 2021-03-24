@@ -1,0 +1,84 @@
+{
+    "_version": "1.8.0",
+    "sap.app": {
+        "id": "gen",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "title": "{{app.Title}}",
+        "description": "{{app.Description}}",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "dataSources": {}
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": ["sap_hcb", "sap_bluecrystal", "sap_belize"]
+    },
+    "sap.ui5": {
+        "rootView": "gen.app.App",
+        "dependencies": {
+            "minUI5Version": "1.30",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.ui.layout": {},
+                "sap.uxap": {}
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "gen.i18n.i18n"
+                }
+            }
+        },
+        "resources": {
+            "js": [],
+            "css": [
+                {
+                    "uri": "css/dhtmlxscheduler_material.css"
+                },
+                {
+                    "uri": "style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "viewPath": "gen",
+                "controlId": "app",
+                "controlAggregation": "pages",
+                "async": true
+            },
+            "routes": [
+                {
+                    "name": "Main",
+                    "pattern": "Main:?req:",
+                    "target": "Main"
+                },
+                {
+                    "name": "test",
+                    "pattern": "test:?req:",
+                    "target": "test"
+                }
+            ],
+            "targets": {
+                "Main": {
+                    "viewName": "view.main.Main"
+                },
+                "test": {
+                    "viewName": "view.test.test"
+                }
+            }
+        }
+    }
+}

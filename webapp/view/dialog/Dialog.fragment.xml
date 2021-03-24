@@ -1,0 +1,17 @@
+<core:FragmentDefinition
+      xmlns="sap.m"
+      xmlns:l="sap.ui.layout"
+      xmlns:f="sap.ui.layout.form"
+      xmlns:core="sap.ui.core">
+   <Dialog
+         id="Dialog"
+         class="sapUiSizeCompact">
+      <Input
+            id="ip"
+            value="{/test}" />
+      <Button
+            id="button"
+            text="close"
+            press="close" />
+   </Dialog>
+</core:FragmentDefinition>
