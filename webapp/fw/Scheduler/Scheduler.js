@@ -218,6 +218,7 @@ sap.ui.define(
             },
             parse: function (data) {
                 scheduler.parse(data);
+                return this;
             },
             setCurrentView: function (date, name) {
                 if (date && name) {
