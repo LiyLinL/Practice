@@ -4,8 +4,7 @@ sap.ui.define(
         'sap/ui/model/json/JSONModel',
         'gen/view/dialog/Dialog',
         'sap/ui/model/Filter',
-        'sap/ui/model/FilterOperator',
-        'fw/Scheduler/Scheduler'
+        'sap/ui/model/FilterOperator'
     ],
     function (BaseController, JSONModel, Dialog, Filter, FilterOperator) {
         'use strict';
@@ -16,26 +15,26 @@ sap.ui.define(
                 this.attachPatternMatched('test', me.onRouteMatched);
             },
             onAfterRendering: function () {
-                var s = new fw.Scheduler.Scheduler({
-                    id: 'test',
-                    name: 'test',
-                    yUnit: [
-                        { key: 1, label: 'James Smith' },
-                        { key: 2, label: 'John Williams' },
-                        { key: 3, label: 'David Miller' },
-                        { key: 4, label: 'Linda Brown' }
-                    ],
-                    detail: [
-                        {
-                            start_date: '2021-03-23 09:00:00',
-                            end_date: '2021-03-23 12:00:00',
-                            text: 'Task A-12458',
-                            headKey: 1
-                        }
-                    ],
-                    eventOnDblclick: true
-                });
-                this.byId('div').addItem(s);
+                // var s = new fw.Scheduler.Scheduler({
+                //     id: 'test',
+                //     name: 'test',
+                //     yUnit: [
+                //         { key: 1, label: 'James Smith' },
+                //         { key: 2, label: 'John Williams' },
+                //         { key: 3, label: 'David Miller' },
+                //         { key: 4, label: 'Linda Brown' }
+                //     ],
+                //     detail: [
+                //         {
+                //             start_date: '2021-03-23 09:00:00',
+                //             end_date: '2021-03-23 12:00:00',
+                //             text: 'Task A-12458',
+                //             headKey: 1
+                //         }
+                //     ],
+                //     eventOnDblclick: true
+                // });
+                // this.byId('div').addItem(s);
             },
             onRouteMatched: function (oEvent) {
                 var me = this,
@@ -61,11 +60,27 @@ sap.ui.define(
                                 seq: 3,
                                 text: 'B'
                             }
-                        ]
+                        ],
+                        yUnit: [],
+                        detail: []
                     })
                 );
             },
-            test: function (oEvent) {},
+            test: function (oEvent) {
+                var me = this,
+                    oData = me.getData();
+
+                oData.detail = [
+                    {
+                        start_date: '2021-04-08 09:00:00',
+                        end_date: '2021-04-08 12:00:00',
+                        text: 'Task A-12458',
+                        headKey: 1
+                    }
+                ];
+
+                me.refresh();
+            },
             testF: function (oEvent) {
                 var oColumn = oEvent.getParameter('column');
                 var c = this.byId('s');
