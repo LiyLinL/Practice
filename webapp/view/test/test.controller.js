@@ -4,7 +4,8 @@ sap.ui.define(
         'sap/ui/model/json/JSONModel',
         'gen/view/dialog/Dialog',
         'sap/ui/model/Filter',
-        'sap/ui/model/FilterOperator'
+        'sap/ui/model/FilterOperator',
+        'gen/view/test/interface'
     ],
     function (BaseController, JSONModel, Dialog, Filter, FilterOperator) {
         'use strict';
@@ -65,6 +66,9 @@ sap.ui.define(
                         detail: []
                     })
                 );
+
+                var a = new i('test');
+                console.log(a.editName(111).name);
             },
             test: function (oEvent) {
                 var me = this,
