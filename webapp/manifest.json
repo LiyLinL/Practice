@@ -66,17 +66,25 @@
                     "target": "Main"
                 },
                 {
-                    "name": "test",
-                    "pattern": "test:?req:",
-                    "target": "test"
+                    "name": "custom",
+                    "pattern": "custom:?req:",
+                    "target": "custom"
+                },
+                {
+                    "name": "s",
+                    "pattern": "s:?req:",
+                    "target": "s"
                 }
             ],
             "targets": {
                 "Main": {
                     "viewName": "view.main.Main"
                 },
-                "test": {
-                    "viewName": "view.test.test"
+                "custom": {
+                    "viewName": "view.custom.custom"
+                },
+                "s": {
+                    "viewName": "view.scheduler.s"
                 }
             }
         }

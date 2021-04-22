@@ -36,3 +36,6 @@ rebel.xml
 /.nb-gradle/
 build/
 /src/main/resources/static/sapui5-1.71/resources/
+/sapComponent/sapui5-1.71/resources/
+
+.vscode/
