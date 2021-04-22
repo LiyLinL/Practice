@@ -36,10 +36,33 @@ sap.ui.define(
                 var req = oEvent.getParameter('arguments')['?req'];
                 me.getView().setModel(
                     new JSONModel({
-                        yUnit: [],
-                        detail: []
+                        yUnit: [
+                            {
+                                key: '1',
+                                label: 'Test',
+                                open: true,
+                                children: [
+                                    {
+                                        key: '100202,EDM-09',
+                                        label: 'EDM-09CNC線切割機_G32S_1616000205'
+                                    }
+                                ]
+                            }
+                        ],
+                        detail: [
+                            {
+                                headKey: '100202,EDM-09',
+                                start_date: '2021-04-22 11:45:00',
+                                end_date: '2021-04-22 12:35:00'
+                            }
+                        ]
                     })
                 );
+            },
+            test: function (oEvent) {
+                var me = this;
+
+                var s = me.byId('sched');
             }
         });
     }

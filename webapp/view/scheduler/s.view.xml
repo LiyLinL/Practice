@@ -16,6 +16,10 @@
       <fw:Scheduler
          id="sched"
          yUnit="{/yUnit}"
-         detail="{/detail}" />
+         detail="{/detail}"
+         beforeEventChanged="true"
+         eventDrag="true"
+         render="tree"
+         onBeforeTodayDisplayed="test" />
    </Page>
 </mvc:View>
