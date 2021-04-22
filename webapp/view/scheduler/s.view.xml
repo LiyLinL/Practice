@@ -1,0 +1,21 @@
+<mvc:View
+   controllerName="gen.view.scheduler.s"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc"
+   xmlns:html="http://www.w3.org/1999/xhtml"
+   xmlns:fw="fw.Scheduler">
+   <Page
+      class="sapUiSizeCompact"
+      title="">
+      <headerContent />
+      <!-- <FlexBox
+            id="div"
+            renderType="Bare"
+            width="100%"
+            height="50%" /> -->
+      <fw:Scheduler
+         id="sched"
+         yUnit="{/yUnit}"
+         detail="{/detail}" />
+   </Page>
+</mvc:View>

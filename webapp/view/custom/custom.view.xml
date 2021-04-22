@@ -1,0 +1,73 @@
+<mvc:View
+   controllerName="gen.view.custom.custom"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc"
+   xmlns:core="sap.ui.core"
+   xmlns:html="http://www.w3.org/1999/xhtml"
+   xmlns:cd="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+   xmlns:t="sap.ui.table"
+   xmlns:custom="gen.view.lib">
+   <Page
+      class="sapUiSizeCompact"
+      title="">
+      <headerContent />
+      <custom:customTable
+         id="table"
+         rows="{/table}"
+         selectionMode="None"
+         showNoData="true"
+         visibleRowCount="5"
+         width="20%"
+         class="sapUiTinyMargin"
+         enableCellFilter="true"
+         filter="filter"
+         showColumnVisibilityMenu="true"
+         rowActionCount="1">
+         <custom:columns>
+            <t:Column
+               id="seq"
+               sorted="true"
+               sortProperty="seq"
+               filterProperty="seq">
+               <Label text="Seq" />
+               <t:template>
+                  <Text text="{seq}" />
+               </t:template>
+            </t:Column>
+            <t:Column
+               id="text"
+               filterProperty="text">
+               <Label text="Text" />
+               <t:template>
+                  <Text text="{text}" />
+               </t:template>
+            </t:Column>
+            <t:Column hAlign="Center">
+               <Label text="Button" />
+               <t:template>
+                  <Button
+                     text="open"
+                     press="dialogOpen($event, '1')">
+                     <dependents>
+                        <core:Fragment
+                           fragmentName="gen.view.dialog.Dialog"
+                           type="XML" />
+                     </dependents>
+                  </Button>
+               </t:template>
+            </t:Column>
+         </custom:columns>
+         <custom:rowActionTemplate>
+            <t:RowAction>
+               <t:items>
+                  <t:RowActionItem
+                     text="Edit"
+                     icon="sap-icon://edit"
+                     type="Custom"
+                     press="actPress" />
+               </t:items>
+            </t:RowAction>
+         </custom:rowActionTemplate>
+      </custom:customTable>
+   </Page>
+</mvc:View>
