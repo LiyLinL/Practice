@@ -69,5 +69,6 @@
             </t:RowAction>
          </custom:rowActionTemplate>
       </custom:customTable>
+      <html:div class="test" />
    </Page>
 </mvc:View>
