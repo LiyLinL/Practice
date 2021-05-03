@@ -1,7 +1,25 @@
+@mySelector: test;
 @color: skyblue;
 
-.test {
+.@{mySelector} {
     background-color: @color;
     width: 100px;
     height: 100px;
+    display: table-cell;
+    &::before {
+        content: 'Less is more!';
+        color: red;
+    }
+    p::selection {
+        color: chartreuse;
+        background-color: chocolate;
+    }
+    &:hover {
+        background-color: darkblue;
+    }
+}
+
+.@{mySelector}::first-letter {
+    color: blueviolet;
+    font-size: 40px;
 }

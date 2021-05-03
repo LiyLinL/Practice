@@ -17,7 +17,7 @@
          selectionMode="None"
          showNoData="true"
          visibleRowCount="5"
-         width="20%"
+         width="30%"
          class="sapUiTinyMargin"
          enableCellFilter="true"
          filter="filter"
@@ -31,7 +31,7 @@
                filterProperty="seq">
                <Label text="Seq" />
                <t:template>
-                  <Text text="{seq}" />
+                  <Text text="{path:'seq'}" />
                </t:template>
             </t:Column>
             <t:Column
@@ -56,6 +56,12 @@
                   </Button>
                </t:template>
             </t:Column>
+            <t:Column hAlign="Center">
+               <Label text="" />
+               <t:template>
+                  <Input value="{value}" />
+               </t:template>
+            </t:Column>
          </custom:columns>
          <custom:rowActionTemplate>
             <t:RowAction>
@@ -69,6 +75,8 @@
             </t:RowAction>
          </custom:rowActionTemplate>
       </custom:customTable>
-      <html:div class="test" />
+      <html:div class="test">
+         <html:p> Before </html:p>
+      </html:div>
    </Page>
 </mvc:View>

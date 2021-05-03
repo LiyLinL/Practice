@@ -10,7 +10,6 @@ base.prototype = {
                 // style
                 includeStylesheet(sap.ui.require.toUrl('gen/style.css'));
                 includeStylesheet(sap.ui.require.toUrl('gen/css/dhtmlxscheduler_material.css'));
-                includeStylesheet(sap.ui.require.toUrl('gen/css/testStyle.less'));
 
                 // js
                 includeScript(sap.ui.require.toUrl('gen/utils/decimal.min.js'));
