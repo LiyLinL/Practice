@@ -18,6 +18,7 @@ sap.ui.define(
             onRouteMatched: function (oEvent) {
                 var me = this,
                     oView = me.getView();
+                var c;
                 var req = oEvent.getParameter('arguments');
                 me.getView().setModel(
                     new JSONModel({
