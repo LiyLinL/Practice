@@ -9,7 +9,7 @@ sap.ui.define(
             init: function () {
                 var me = this;
 
-                new base(me).include();
+                new base(me).include().load();
 
                 UIComponent.prototype.init.apply(this, arguments);
                 me.getRouter().initialize();

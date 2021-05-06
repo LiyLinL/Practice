@@ -18,5 +18,13 @@ base.prototype = {
                 includeScript(sap.ui.require.toUrl('gen/utils/FileSaver.js'));
             }
         );
+        return this;
+    },
+    load: function () {
+        sap.ui.loader.config({
+            paths: {
+                fw: './fw'
+            }
+        });
     }
 };
