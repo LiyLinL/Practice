@@ -1,14 +1,20 @@
 package com.liy.generator.quartz.listener;
 
+import com.liy.generator.entity.QuartzTaskRecords;
+import com.liy.generator.service.QuartzService;
 import org.quartz.JobDetail;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 import org.quartz.listeners.JobListenerSupport;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
 import java.util.Map;
 
 public class SystemJobListener extends JobListenerSupport {
+
+    @Autowired
+    private QuartzService quartzService;
 
     @Override
     public String getName() {
@@ -21,6 +27,8 @@ public class SystemJobListener extends JobListenerSupport {
 
     @Override
     public void jobWasExecuted( JobExecutionContext context, JobExecutionException jobException ) {
+        QuartzTaskRecords quartzTaskRecords = new QuartzTaskRecords();
+
         long runTime = context.getJobRunTime();
         JobDetail jobDetail = context.getJobDetail();
         String jobName = jobDetail.getKey().getName();
@@ -29,11 +37,17 @@ public class SystemJobListener extends JobListenerSupport {
 
         if (jobException != null) {
             System.out.println("Fail");
+            quartzTaskRecords.setTaskstatus("Fail");
         } else {
             System.out.println("Success");
+            quartzTaskRecords.setTaskstatus("Success");
         }
 
         String jobKey = context.getJobDetail().getKey().toString();
         System.out.println(jobKey + " ==== " + new Date());
+
+        quartzTaskRecords.setTaskno(jobName);
+        quartzTaskRecords.setExecutetime(0L);
+        quartzService.insertJobRecords(quartzTaskRecords);
     }
 }

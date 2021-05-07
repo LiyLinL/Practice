@@ -1,13 +1,16 @@
 package com.liy.generator.quartz.service.impl;
 
+import com.liy.generator.entity.QuartzTaskInformations;
 import com.liy.generator.quartz.service.ScheduleService;
 import com.liy.generator.quartz.util.ScheduleUtil;
+import com.liy.generator.service.QuartzService;
 import org.quartz.Scheduler;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -15,6 +18,9 @@ public class ScheduleServiceImpl implements ScheduleService, InitializingBean {
 
     @Autowired
     Scheduler scheduler;
+
+    @Autowired
+    private QuartzService quartzService;
 
     @Override
     public void afterPropertiesSet() throws Exception {
@@ -24,6 +30,19 @@ public class ScheduleServiceImpl implements ScheduleService, InitializingBean {
 
         ScheduleUtil.createScheduleJob(scheduler, "program1", "com.liy.generator.quartz.Job.ProgramFactory1", "default",
                 "description", "*/10 * * * * ?", map);
+
+        List<QuartzTaskInformations> list = quartzService.findJob();
+        if (list.size() == 0) {
+            QuartzTaskInformations quartzTaskInformations = new QuartzTaskInformations();
+            quartzTaskInformations.setVersion(1);
+            quartzTaskInformations.setTaskno("program1");
+            quartzTaskInformations.setTaskname("program1");
+            quartzTaskInformations.setSchedulerrule("*/10 * * * * ?");
+            quartzTaskInformations.setFrozenstatus("0");
+            quartzTaskInformations.setExecutorno("0");
+            quartzTaskInformations.setTimekey("0");
+            quartzService.insertJob(quartzTaskInformations);
+        }
     }
 
     @Override
