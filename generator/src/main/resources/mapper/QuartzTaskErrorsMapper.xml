@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liy.generator.mapper.QuartzTaskErrorsMapper">
+  <resultMap id="BaseResultMap" type="com.liy.generator.entity.QuartzTaskErrors">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="TASKEXECUTERECORDID" jdbcType="VARCHAR" property="taskexecuterecordid" />
+    <result column="ERRORKEY" jdbcType="VARCHAR" property="errorkey" />
+    <result column="CREATETIME" jdbcType="BIGINT" property="createtime" />
+    <result column="LASTMODIFYTIME" jdbcType="BIGINT" property="lastmodifytime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.liy.generator.entity.QuartzTaskErrors">
+    <result column="ERRORVALUE" jdbcType="NCLOB" property="errorvalue" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, TASKEXECUTERECORDID, ERRORKEY, CREATETIME, LASTMODIFYTIME
+  </sql>
+  <sql id="Blob_Column_List">
+    ERRORVALUE
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.liy.generator.entity.QuartzTaskErrorsExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from QUARTZ_TASK_ERRORS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.liy.generator.entity.QuartzTaskErrorsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from QUARTZ_TASK_ERRORS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from QUARTZ_TASK_ERRORS
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from QUARTZ_TASK_ERRORS
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.liy.generator.entity.QuartzTaskErrorsExample">
+    delete from QUARTZ_TASK_ERRORS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.liy.generator.entity.QuartzTaskErrors">
+    insert into QUARTZ_TASK_ERRORS (ID, TASKEXECUTERECORDID, ERRORKEY, 
+      CREATETIME, LASTMODIFYTIME, ERRORVALUE
+      )
+    values (#{id,jdbcType=BIGINT}, #{taskexecuterecordid,jdbcType=VARCHAR}, #{errorkey,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=BIGINT}, #{lastmodifytime,jdbcType=BIGINT}, #{errorvalue,jdbcType=NCLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.liy.generator.entity.QuartzTaskErrors">
+    insert into QUARTZ_TASK_ERRORS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="taskexecuterecordid != null">
+        TASKEXECUTERECORDID,
+      </if>
+      <if test="errorkey != null">
+        ERRORKEY,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="lastmodifytime != null">
+        LASTMODIFYTIME,
+      </if>
+      <if test="errorvalue != null">
+        ERRORVALUE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="taskexecuterecordid != null">
+        #{taskexecuterecordid,jdbcType=VARCHAR},
+      </if>
+      <if test="errorkey != null">
+        #{errorkey,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=BIGINT},
+      </if>
+      <if test="lastmodifytime != null">
+        #{lastmodifytime,jdbcType=BIGINT},
+      </if>
+      <if test="errorvalue != null">
+        #{errorvalue,jdbcType=NCLOB},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.liy.generator.entity.QuartzTaskErrorsExample" resultType="java.lang.Long">
+    select count(*) from QUARTZ_TASK_ERRORS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update QUARTZ_TASK_ERRORS
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.taskexecuterecordid != null">
+        TASKEXECUTERECORDID = #{record.taskexecuterecordid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.errorkey != null">
+        ERRORKEY = #{record.errorkey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null">
+        CREATETIME = #{record.createtime,jdbcType=BIGINT},
+      </if>
+      <if test="record.lastmodifytime != null">
+        LASTMODIFYTIME = #{record.lastmodifytime,jdbcType=BIGINT},
+      </if>
+      <if test="record.errorvalue != null">
+        ERRORVALUE = #{record.errorvalue,jdbcType=NCLOB},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update QUARTZ_TASK_ERRORS
+    set ID = #{record.id,jdbcType=BIGINT},
+      TASKEXECUTERECORDID = #{record.taskexecuterecordid,jdbcType=VARCHAR},
+      ERRORKEY = #{record.errorkey,jdbcType=VARCHAR},
+      CREATETIME = #{record.createtime,jdbcType=BIGINT},
+      LASTMODIFYTIME = #{record.lastmodifytime,jdbcType=BIGINT},
+      ERRORVALUE = #{record.errorvalue,jdbcType=NCLOB}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update QUARTZ_TASK_ERRORS
+    set ID = #{record.id,jdbcType=BIGINT},
+      TASKEXECUTERECORDID = #{record.taskexecuterecordid,jdbcType=VARCHAR},
+      ERRORKEY = #{record.errorkey,jdbcType=VARCHAR},
+      CREATETIME = #{record.createtime,jdbcType=BIGINT},
+      LASTMODIFYTIME = #{record.lastmodifytime,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.liy.generator.entity.QuartzTaskErrors">
+    update QUARTZ_TASK_ERRORS
+    <set>
+      <if test="taskexecuterecordid != null">
+        TASKEXECUTERECORDID = #{taskexecuterecordid,jdbcType=VARCHAR},
+      </if>
+      <if test="errorkey != null">
+        ERRORKEY = #{errorkey,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=BIGINT},
+      </if>
+      <if test="lastmodifytime != null">
+        LASTMODIFYTIME = #{lastmodifytime,jdbcType=BIGINT},
+      </if>
+      <if test="errorvalue != null">
+        ERRORVALUE = #{errorvalue,jdbcType=NCLOB},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.liy.generator.entity.QuartzTaskErrors">
+    update QUARTZ_TASK_ERRORS
+    set TASKEXECUTERECORDID = #{taskexecuterecordid,jdbcType=VARCHAR},
+      ERRORKEY = #{errorkey,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=BIGINT},
+      LASTMODIFYTIME = #{lastmodifytime,jdbcType=BIGINT},
+      ERRORVALUE = #{errorvalue,jdbcType=NCLOB}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.liy.generator.entity.QuartzTaskErrors">
+    update QUARTZ_TASK_ERRORS
+    set TASKEXECUTERECORDID = #{taskexecuterecordid,jdbcType=VARCHAR},
+      ERRORKEY = #{errorkey,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=BIGINT},
+      LASTMODIFYTIME = #{lastmodifytime,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

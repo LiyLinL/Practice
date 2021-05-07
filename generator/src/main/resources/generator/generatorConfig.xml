@@ -19,7 +19,7 @@
         <!-- jdbc -->
         <jdbcConnection driverClass="${generatorConfig.driverClass}"
                         connectionURL="${generatorConfig.connectionURL}" userId="${generatorConfig.user}"
-                        password="${generatorConfig.passwd}" >
+                        password="${generatorConfig.passwd}">
             <!-- 针对oracle数据库 之前实体类中文注释是问号 加上这个就好了 -->
             <property name="remarksReporting" value="true"></property>
             <!--支持mybatis获取注释-->
@@ -27,7 +27,7 @@
         </jdbcConnection>
 
         <javaTypeResolver>
-            <property name="forceBigDecimals" value="false" />
+            <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
         <!-- dto class -->
@@ -50,7 +50,7 @@
         <!-- enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
             enableSelectByExample="false" selectByExampleQueryId="false" -->
         <!--已生成的表 <table schema="demo" tableName="USER" domainObjectName="User"></table> -->
-        <table tableName="${generatorConfig.table}" schema="">
+        <table tableName="${generatorConfig.table}" schema="${generatorConfig.schema}">
             <property name="modelOnly" value="false"/>
         </table>
     </context>

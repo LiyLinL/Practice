@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liy.generator.mapper.QuartzTaskRecordsMapper">
+  <resultMap id="BaseResultMap" type="com.liy.generator.entity.QuartzTaskRecords">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="TASKNO" jdbcType="VARCHAR" property="taskno" />
+    <result column="TIMEKEYVALUE" jdbcType="VARCHAR" property="timekeyvalue" />
+    <result column="EXECUTETIME" jdbcType="BIGINT" property="executetime" />
+    <result column="TASKSTATUS" jdbcType="VARCHAR" property="taskstatus" />
+    <result column="FAILCOUNT" jdbcType="INTEGER" property="failcount" />
+    <result column="FAILREASON" jdbcType="VARCHAR" property="failreason" />
+    <result column="CREATETIME" jdbcType="BIGINT" property="createtime" />
+    <result column="LASTMODIFYTIME" jdbcType="BIGINT" property="lastmodifytime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, TASKNO, TIMEKEYVALUE, EXECUTETIME, TASKSTATUS, FAILCOUNT, FAILREASON, CREATETIME, 
+    LASTMODIFYTIME
+  </sql>
+  <select id="selectByExample" parameterType="com.liy.generator.entity.QuartzTaskRecordsExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from QUARTZ_TASK_RECORDS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from QUARTZ_TASK_RECORDS
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from QUARTZ_TASK_RECORDS
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.liy.generator.entity.QuartzTaskRecordsExample">
+    delete from QUARTZ_TASK_RECORDS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.liy.generator.entity.QuartzTaskRecords">
+    insert into QUARTZ_TASK_RECORDS (ID, TASKNO, TIMEKEYVALUE, 
+      EXECUTETIME, TASKSTATUS, FAILCOUNT, 
+      FAILREASON, CREATETIME, LASTMODIFYTIME
+      )
+    values (#{id,jdbcType=BIGINT}, #{taskno,jdbcType=VARCHAR}, #{timekeyvalue,jdbcType=VARCHAR}, 
+      #{executetime,jdbcType=BIGINT}, #{taskstatus,jdbcType=VARCHAR}, #{failcount,jdbcType=INTEGER}, 
+      #{failreason,jdbcType=VARCHAR}, #{createtime,jdbcType=BIGINT}, #{lastmodifytime,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.liy.generator.entity.QuartzTaskRecords">
+    insert into QUARTZ_TASK_RECORDS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="taskno != null">
+        TASKNO,
+      </if>
+      <if test="timekeyvalue != null">
+        TIMEKEYVALUE,
+      </if>
+      <if test="executetime != null">
+        EXECUTETIME,
+      </if>
+      <if test="taskstatus != null">
+        TASKSTATUS,
+      </if>
+      <if test="failcount != null">
+        FAILCOUNT,
+      </if>
+      <if test="failreason != null">
+        FAILREASON,
+      </if>
+      <if test="createtime != null">
+        CREATETIME,
+      </if>
+      <if test="lastmodifytime != null">
+        LASTMODIFYTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="taskno != null">
+        #{taskno,jdbcType=VARCHAR},
+      </if>
+      <if test="timekeyvalue != null">
+        #{timekeyvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="executetime != null">
+        #{executetime,jdbcType=BIGINT},
+      </if>
+      <if test="taskstatus != null">
+        #{taskstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="failcount != null">
+        #{failcount,jdbcType=INTEGER},
+      </if>
+      <if test="failreason != null">
+        #{failreason,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=BIGINT},
+      </if>
+      <if test="lastmodifytime != null">
+        #{lastmodifytime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.liy.generator.entity.QuartzTaskRecordsExample" resultType="java.lang.Long">
+    select count(*) from QUARTZ_TASK_RECORDS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update QUARTZ_TASK_RECORDS
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.taskno != null">
+        TASKNO = #{record.taskno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.timekeyvalue != null">
+        TIMEKEYVALUE = #{record.timekeyvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.executetime != null">
+        EXECUTETIME = #{record.executetime,jdbcType=BIGINT},
+      </if>
+      <if test="record.taskstatus != null">
+        TASKSTATUS = #{record.taskstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.failcount != null">
+        FAILCOUNT = #{record.failcount,jdbcType=INTEGER},
+      </if>
+      <if test="record.failreason != null">
+        FAILREASON = #{record.failreason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createtime != null">
+        CREATETIME = #{record.createtime,jdbcType=BIGINT},
+      </if>
+      <if test="record.lastmodifytime != null">
+        LASTMODIFYTIME = #{record.lastmodifytime,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update QUARTZ_TASK_RECORDS
+    set ID = #{record.id,jdbcType=BIGINT},
+      TASKNO = #{record.taskno,jdbcType=VARCHAR},
+      TIMEKEYVALUE = #{record.timekeyvalue,jdbcType=VARCHAR},
+      EXECUTETIME = #{record.executetime,jdbcType=BIGINT},
+      TASKSTATUS = #{record.taskstatus,jdbcType=VARCHAR},
+      FAILCOUNT = #{record.failcount,jdbcType=INTEGER},
+      FAILREASON = #{record.failreason,jdbcType=VARCHAR},
+      CREATETIME = #{record.createtime,jdbcType=BIGINT},
+      LASTMODIFYTIME = #{record.lastmodifytime,jdbcType=BIGINT}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.liy.generator.entity.QuartzTaskRecords">
+    update QUARTZ_TASK_RECORDS
+    <set>
+      <if test="taskno != null">
+        TASKNO = #{taskno,jdbcType=VARCHAR},
+      </if>
+      <if test="timekeyvalue != null">
+        TIMEKEYVALUE = #{timekeyvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="executetime != null">
+        EXECUTETIME = #{executetime,jdbcType=BIGINT},
+      </if>
+      <if test="taskstatus != null">
+        TASKSTATUS = #{taskstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="failcount != null">
+        FAILCOUNT = #{failcount,jdbcType=INTEGER},
+      </if>
+      <if test="failreason != null">
+        FAILREASON = #{failreason,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        CREATETIME = #{createtime,jdbcType=BIGINT},
+      </if>
+      <if test="lastmodifytime != null">
+        LASTMODIFYTIME = #{lastmodifytime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.liy.generator.entity.QuartzTaskRecords">
+    update QUARTZ_TASK_RECORDS
+    set TASKNO = #{taskno,jdbcType=VARCHAR},
+      TIMEKEYVALUE = #{timekeyvalue,jdbcType=VARCHAR},
+      EXECUTETIME = #{executetime,jdbcType=BIGINT},
+      TASKSTATUS = #{taskstatus,jdbcType=VARCHAR},
+      FAILCOUNT = #{failcount,jdbcType=INTEGER},
+      FAILREASON = #{failreason,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=BIGINT},
+      LASTMODIFYTIME = #{lastmodifytime,jdbcType=BIGINT}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
