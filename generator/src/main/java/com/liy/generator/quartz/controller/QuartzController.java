@@ -1,14 +1,17 @@
 package com.liy.generator.quartz.controller;
 
+import com.liy.generator.domain.RecordsInfo;
+import com.liy.generator.domain.TaskInfo;
 import com.liy.generator.entity.QuartzTaskInformations;
 import com.liy.generator.quartz.service.ScheduleService;
 import com.liy.generator.service.QuartzService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(value = { "*" })
 @RestController
 public class QuartzController {
 
@@ -33,9 +36,9 @@ public class QuartzController {
         scheduleService.deleteJob();
     }
 
-    @GetMapping("/upd")
-    public void upd() {
-        scheduleService.updJob();
+    @PostMapping("/upd")
+    public void upd( @RequestBody TaskInfo taskInfo ) {
+        scheduleService.updJob(taskInfo);
     }
 
     @GetMapping("/run")
@@ -51,5 +54,10 @@ public class QuartzController {
     @GetMapping("/resume")
     public void resume() {
         scheduleService.resumeJob();
+    }
+
+    @GetMapping("/findJobRecords")
+    public List<RecordsInfo> findJobRecords( @Param("taskNo") String taskNo ) {
+        return quartzService.findJobRecords(taskNo);
     }
 }

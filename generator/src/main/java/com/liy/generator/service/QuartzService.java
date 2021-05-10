@@ -1,5 +1,6 @@
 package com.liy.generator.service;
 
+import com.liy.generator.domain.RecordsInfo;
 import com.liy.generator.entity.QuartzTaskInformations;
 import com.liy.generator.entity.QuartzTaskRecords;
 
@@ -11,7 +12,9 @@ public interface QuartzService {
 
     void insertJob( QuartzTaskInformations quartzTaskInformations );
 
-    List<QuartzTaskRecords> findJobRecords();
+    void updateJob( QuartzTaskInformations quartzTaskInformations );
+
+    List<RecordsInfo> findJobRecords( String taskNo );
 
     void insertJobRecords( QuartzTaskRecords quartzTaskRecords );
 }

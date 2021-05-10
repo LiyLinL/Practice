@@ -1,5 +1,5 @@
 sap.ui.define(
-    ['sap/ui/core/UIComponent', 'gen/core/BaseController', 'gen/core/base'],
+    ['sap/ui/core/UIComponent', 'gen/core/BaseController', 'gen/core/base', 'gen/ajax'],
     function (UIComponent, BaseController) {
         'use strict';
         return UIComponent.extend('gen.Component', {

@@ -1,5 +1,6 @@
 package com.liy.generator.quartz.service.impl;
 
+import com.liy.generator.domain.TaskInfo;
 import com.liy.generator.entity.QuartzTaskInformations;
 import com.liy.generator.quartz.service.ScheduleService;
 import com.liy.generator.quartz.util.ScheduleUtil;
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,26 +25,23 @@ public class ScheduleServiceImpl implements ScheduleService, InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        String jobName = "program1";
-        String jobClass = "com.liy.generator.quartz.Job.ProgramFactory1";
-        String cronExpression = "* 1 * * * ?";
         Map<String, Object> map = new HashMap<>();
         map.put("Name", "Test");
         map.put("Scheduler", "true");
 
-        ScheduleUtil.createScheduleJob(scheduler, jobName, jobClass, "default",
-                "description", cronExpression, map);
-
         List<QuartzTaskInformations> list = quartzService.findJob();
-        if (list.size() == 0) {
-            QuartzTaskInformations quartzTaskInformations = new QuartzTaskInformations();
-            quartzTaskInformations.setTaskNo(jobName);
-            quartzTaskInformations.setTaskName(jobName);
-            quartzTaskInformations.setClassName(jobClass);
-            quartzTaskInformations.setSchedulerRule(cronExpression);
-            quartzTaskInformations.setFrozenStatus("0");
-            quartzTaskInformations.setCreateTime(new Date());
-            quartzService.insertJob(quartzTaskInformations);
+        if (list.size() > 0) {
+            list.forEach(obj -> {
+                ScheduleUtil.createScheduleJob(scheduler, obj.getTaskName(), obj.getClassName(), "default",
+                        "description", obj.getSchedulerRule(), map);
+
+                if (!obj.getFrozenStatus().equals("0")) {
+                    QuartzTaskInformations quartzTaskInformations = new QuartzTaskInformations();
+                    quartzTaskInformations.setTaskName(obj.getTaskName());
+                    quartzTaskInformations.setFrozenStatus("0");
+                    quartzService.updateJob(quartzTaskInformations);
+                }
+            });
         }
     }
 
@@ -64,12 +61,18 @@ public class ScheduleServiceImpl implements ScheduleService, InitializingBean {
     }
 
     @Override
-    public void updJob() {
+    public void updJob( TaskInfo taskInfo ) {
         Map<String, Object> map = new HashMap<>();
         map.put("Name", "Test");
         map.put("Scheduler", "true");
 
-        ScheduleUtil.updateScheduleJob(scheduler, "program1", "default", "*/5 * * * * ?", map);
+        ScheduleUtil.updateScheduleJob(scheduler, taskInfo.getTaskNo(), "default", taskInfo.getCron(), map);
+
+        QuartzTaskInformations quartzTaskInformations = new QuartzTaskInformations();
+        quartzTaskInformations.setTaskName(taskInfo.getTaskNo());
+        quartzTaskInformations.setSchedulerRule(taskInfo.getCron());
+        quartzTaskInformations.setFrozenStatus("0");
+        quartzService.updateJob(quartzTaskInformations);
     }
 
     @Override
@@ -84,10 +87,20 @@ public class ScheduleServiceImpl implements ScheduleService, InitializingBean {
     @Override
     public void pauseJob() {
         ScheduleUtil.pauseScheduleJob(scheduler, "program1", "default");
+
+        QuartzTaskInformations quartzTaskInformations = new QuartzTaskInformations();
+        quartzTaskInformations.setTaskName("program1");
+        quartzTaskInformations.setFrozenStatus("1");
+        quartzService.updateJob(quartzTaskInformations);
     }
 
     @Override
     public void resumeJob() {
         ScheduleUtil.resumeScheduleJob(scheduler, "program1", "default");
+
+        QuartzTaskInformations quartzTaskInformations = new QuartzTaskInformations();
+        quartzTaskInformations.setTaskName("program1");
+        quartzTaskInformations.setFrozenStatus("0");
+        quartzService.updateJob(quartzTaskInformations);
     }
 }

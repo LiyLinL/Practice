@@ -33,8 +33,16 @@ public class QuartzRepoImpl implements QuartzRepo {
     }
 
     @Override
-    public List<QuartzTaskRecords> findJobRecords() {
+    public void updateJob( QuartzTaskInformations quartzTaskInformations ) {
+        QuartzTaskInformationsExample example = new QuartzTaskInformationsExample();
+        example.createCriteria().andTaskNameEqualTo(quartzTaskInformations.getTaskName());
+        quartzTaskInformationsMapper.updateByExampleSelective(quartzTaskInformations, example);
+    }
+
+    @Override
+    public List<QuartzTaskRecords> findJobRecords( QuartzTaskRecords quartzTaskRecords ) {
         QuartzTaskRecordsExample example = new QuartzTaskRecordsExample();
+        example.createCriteria().andTaskNoEqualTo(quartzTaskRecords.getTaskNo());
         return quartzTaskRecordsMapper.selectByExample(example);
     }
 

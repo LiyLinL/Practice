@@ -67,6 +67,11 @@
                     "name": "s",
                     "pattern": "s:?req:",
                     "target": "s"
+                },
+                {
+                    "name": "job",
+                    "pattern": "job:?req:",
+                    "target": "job"
                 }
             ],
             "targets": {
@@ -78,6 +83,9 @@
                 },
                 "s": {
                     "viewName": "view.scheduler.s"
+                },
+                "job": {
+                    "viewName": "view.job.job"
                 }
             }
         }

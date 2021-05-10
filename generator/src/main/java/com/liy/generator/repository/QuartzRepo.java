@@ -11,7 +11,9 @@ public interface QuartzRepo {
 
     void insertJob( QuartzTaskInformations quartzTaskInformations );
 
-    List<QuartzTaskRecords> findJobRecords();
+    void updateJob( QuartzTaskInformations quartzTaskInformations );
+
+    List<QuartzTaskRecords> findJobRecords( QuartzTaskRecords quartzTaskRecords );
 
     void insertJobRecords( QuartzTaskRecords quartzTaskRecords );
 }
