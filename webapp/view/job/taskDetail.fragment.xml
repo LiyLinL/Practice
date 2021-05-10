@@ -1,0 +1,48 @@
+<core:FragmentDefinition
+      xmlns="sap.m"
+      xmlns:core="sap.ui.core">
+      <Dialog
+            id="taskDetail"
+            class="sapUiSizeCompact"
+            contentWidth="25%"
+            contentHeight="25%">
+            <FlexBox>
+                  <Table
+                        items="{/detail}"
+                        sticky="ColumnHeaders">
+                        <columns>
+                              <Column
+                                    vAlign="Middle"
+                                    hAlign="Center"
+                                    width="3em">
+                                    <Text text="{i18n>seq}" />
+                              </Column>
+                              <Column
+                                    vAlign="Middle"
+                                    hAlign="Center">
+                                    <Text text="{i18n>job.executeTime}" />
+                              </Column>
+                              <Column
+                                    vAlign="Middle"
+                                    hAlign="Center">
+                                    <Text text="{i18n>job.status}" />
+                              </Column>
+                        </columns>
+                        <items>
+                              <ColumnListItem>
+                                    <cells>
+                                          <Text text="{seq}" />
+                                          <Text text="{executeTimeStr}" />
+                                          <Text text="{path:'taskStatus', formatter:'.formatter.detailStatusFormate'}" />
+                                    </cells>
+                              </ColumnListItem>
+                        </items>
+                  </Table>
+            </FlexBox>
+            <endButton>
+                  <Button
+                        text="Close"
+                        press="close" />
+            </endButton>
+      </Dialog>
+</core:FragmentDefinition>

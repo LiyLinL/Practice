@@ -1,0 +1,237 @@
+<mvc:View
+   controllerName="gen.view.job.job"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc"
+   xmlns:t="sap.ui.table"
+   xmlns:core="sap.ui.core"
+   xmlns:html="http://www.w3.org/1999/xhtml">
+   <Page
+      class="sapUiSizeCompact"
+      title="Task">
+      <headerContent />
+      <content>
+         <FlexBox class="sapUiTinyMargin">
+            <Button text="{i18n>job.add}" />
+         </FlexBox>
+         <FlexBox>
+            <t:Table
+               id="table"
+               rows="{/table}"
+               selectionMode="None"
+               showNoData="true"
+               visibleRowCount="1"
+               class="sapUiTinyMargin"
+               enableColumnReordering="false">
+               <t:columns>
+                  <t:Column
+                     width="8em"
+                     hAlign="Center"
+                     resizable="false"
+                     sortProperty="taskName">
+                     <Label text="{i18n>job.name}" />
+                     <t:template>
+                        <Link
+                           text="{taskName}"
+                           press="detail" />
+                     </t:template>
+                  </t:Column>
+                  <t:Column
+                     width="25em"
+                     hAlign="Center"
+                     resizable="false"
+                     sortProperty="className">
+                     <Label text="{i18n>job.class}" />
+                     <t:template>
+                        <Text text="{className}" />
+                     </t:template>
+                  </t:Column>
+                  <t:Column
+                     hAlign="Center"
+                     resizable="false">
+                     <Label text="{i18n>job.status}" />
+                     <t:template>
+                        <Text text="{path: 'frozenStatus', formatter:'.formatter.statusFormate'}" />
+                     </t:template>
+                  </t:Column>
+                  <t:Column
+                     hAlign="Center"
+                     resizable="false">
+                     <Label
+                        text="{i18n>job.sec}"
+                        required="true" />
+                     <t:template>
+                        <HBox>
+                           <Text
+                              textAlign="Center"
+                              text="{sec}"
+                              visible="{= ${editAble} === false}" />
+                           <Input
+                              value="{sec}"
+                              visible="{editAble}" />
+                        </HBox>
+                     </t:template>
+                  </t:Column>
+                  <t:Column
+                     hAlign="Center"
+                     resizable="false">
+                     <Label
+                        text="{i18n>job.min}"
+                        required="true" />
+                     <t:template>
+                        <HBox>
+                           <Text
+                              textAlign="Center"
+                              text="{min}"
+                              visible="{= ${editAble} === false}" />
+                           <Input
+                              value="{min}"
+                              visible="{editAble}" />
+                        </HBox>
+                     </t:template>
+                  </t:Column>
+                  <t:Column
+                     hAlign="Center"
+                     resizable="false">
+                     <Label
+                        text="{i18n>job.hour}"
+                        required="true" />
+                     <t:template>
+                        <HBox>
+                           <Text
+                              textAlign="Center"
+                              text="{hour}"
+                              visible="{= ${editAble} === false}" />
+                           <Input
+                              value="{hour}"
+                              visible="{editAble}" />
+                        </HBox>
+                     </t:template>
+                  </t:Column>
+                  <t:Column
+                     hAlign="Center"
+                     resizable="false">
+                     <Label
+                        text="{i18n>job.dOfWeek}"
+                        required="true" />
+                     <t:template>
+                        <HBox>
+                           <Text
+                              textAlign="Center"
+                              text="{dayOfWeek}"
+                              visible="{= ${editAble} === false}" />
+                           <Input
+                              value="{dayOfWeek}"
+                              visible="{editAble}" />
+                        </HBox>
+                     </t:template>
+                  </t:Column>
+                  <t:Column
+                     hAlign="Center"
+                     resizable="false">
+                     <Label
+                        text="{i18n>job.dOfMonth}"
+                        required="true" />
+                     <t:template>
+                        <HBox>
+                           <Text
+                              textAlign="Center"
+                              text="{dayOfMonth}"
+                              visible="{= ${editAble} === false}" />
+                           <Input
+                              value="{dayOfMonth}"
+                              visible="{editAble}" />
+                        </HBox>
+                     </t:template>
+                  </t:Column>
+                  <t:Column
+                     hAlign="Center"
+                     resizable="false">
+                     <Label
+                        text="{i18n>job.week}"
+                        required="true" />
+                     <t:template>
+                        <HBox>
+                           <Text
+                              textAlign="Center"
+                              text="{week}"
+                              visible="{= ${editAble} === false}" />
+                           <Input
+                              value="{week}"
+                              visible="{editAble}" />
+                        </HBox>
+                     </t:template>
+                  </t:Column>
+                  <t:Column
+                     hAlign="Center"
+                     resizable="false">
+                     <Label text="{i18n>job.year}" />
+                     <t:template>
+                        <HBox>
+                           <Text
+                              textAlign="Center"
+                              text="{year}"
+                              visible="{= ${editAble} === false}" />
+                           <Input
+                              value="{year}"
+                              visible="{editAble}" />
+                        </HBox>
+                     </t:template>
+                  </t:Column>
+                  <t:Column
+                     hAlign="Center"
+                     resizable="false"
+                     width="25em">
+                     <Label text="{i18n>job.operation}" />
+                     <t:template>
+                        <HBox>
+                           <Button
+                              text="{i18n>job.pause}"
+                              width="5em"
+                              press="operation('pause', $event)">
+                              <layoutData>
+                                 <FlexItemData growFactor="1" />
+                              </layoutData>
+                           </Button>
+                           <Button
+                              text="{i18n>job.resume}"
+                              width="5em"
+                              press="operation('resume', $event)">
+                              <layoutData>
+                                 <FlexItemData growFactor="1" />
+                              </layoutData>
+                           </Button>
+                           <Button
+                              text="{i18n>job.now}"
+                              width="8em"
+                              press="operation('now', $event)">
+                              <layoutData>
+                                 <FlexItemData growFactor="1" />
+                              </layoutData>
+                           </Button>
+                           <Button
+                              text="{i18n>job.upd}"
+                              width="5em"
+                              press="operation('upd', $event)"
+                              visible="{= ${editAble} === false}">
+                              <layoutData>
+                                 <FlexItemData growFactor="1" />
+                              </layoutData>
+                           </Button>
+                           <Button
+                              text="{i18n>job.save}"
+                              width="5em"
+                              press="operation('save', $event)"
+                              visible="{= ${editAble} === true}">
+                              <layoutData>
+                                 <FlexItemData growFactor="1" />
+                              </layoutData>
+                           </Button>
+                        </HBox>
+                     </t:template>
+                  </t:Column>
+               </t:columns>
+            </t:Table>
+         </FlexBox>
+      </content>
+   </Page>
+</mvc:View>
