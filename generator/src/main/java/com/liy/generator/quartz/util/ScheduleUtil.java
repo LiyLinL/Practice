@@ -45,14 +45,14 @@ public class ScheduleUtil {
      * 更新任務
      *
      * @param scheduler
-     * @param jobId
+     * @param jobName
      * @param jobGroupName
      * @param cronExpression
      * @param jobParam
      */
-    public static void updateScheduleJob( Scheduler scheduler, String jobId, String jobGroupName, String cronExpression, Map<String, Object> jobParam ) {
+    public static void updateScheduleJob( Scheduler scheduler, String jobName, String jobGroupName, String cronExpression, Map<String, Object> jobParam ) {
         try {
-            TriggerKey triggerKey = TriggerKey.triggerKey(jobId, jobGroupName);
+            TriggerKey triggerKey = TriggerKey.triggerKey(jobName, jobGroupName);
 
             // 表达式调度构建器
             CronScheduleBuilder cronScheduleBuilder = CronScheduleBuilder.cronSchedule(cronExpression);
@@ -74,16 +74,16 @@ public class ScheduleUtil {
      * 立即執行一次
      *
      * @param scheduler
-     * @param jobId
+     * @param jobName
      * @param jobGroupName
      * @param jobParam
      */
-    public static void runScheduleJob( Scheduler scheduler, String jobId, String jobGroupName, Map<String, Object> jobParam ) {
+    public static void runScheduleJob( Scheduler scheduler, String jobName, String jobGroupName, Map<String, Object> jobParam ) {
         try {
             // 参数
             JobDataMap dataMap = new JobDataMap();
             dataMap.putAll(jobParam);
-            scheduler.triggerJob(JobKey.jobKey(jobId, jobGroupName), dataMap);
+            scheduler.triggerJob(JobKey.jobKey(jobName, jobGroupName), dataMap);
         } catch (SchedulerException e) {
             System.out.println(e.toString());
         }
@@ -93,13 +93,13 @@ public class ScheduleUtil {
      * 暫停
      *
      * @param scheduler
-     * @param jobId
+     * @param jobName
      * @param jobGroupName
      */
-    public static void pauseScheduleJob( Scheduler scheduler, String jobId, String jobGroupName ) {
+    public static void pauseScheduleJob( Scheduler scheduler, String jobName, String jobGroupName ) {
         try {
-            JobKey j = JobKey.jobKey(jobId, jobGroupName);
-            scheduler.pauseJob(JobKey.jobKey(jobId, jobGroupName));
+            JobKey j = JobKey.jobKey(jobName, jobGroupName);
+            scheduler.pauseJob(JobKey.jobKey(jobName, jobGroupName));
         } catch (SchedulerException e) {
             System.out.println(e.toString());
         }
@@ -109,12 +109,12 @@ public class ScheduleUtil {
      * 恢復
      *
      * @param scheduler
-     * @param jobId
+     * @param jobName
      * @param jobGroupName
      */
-    public static void resumeScheduleJob( Scheduler scheduler, String jobId, String jobGroupName ) {
+    public static void resumeScheduleJob( Scheduler scheduler, String jobName, String jobGroupName ) {
         try {
-            scheduler.resumeJob(JobKey.jobKey(jobId, jobGroupName));
+            scheduler.resumeJob(JobKey.jobKey(jobName, jobGroupName));
         } catch (SchedulerException e) {
             System.out.println(e.toString());
         }
@@ -124,17 +124,17 @@ public class ScheduleUtil {
      * 刪除
      *
      * @param scheduler
-     * @param jobId
+     * @param jobName
      * @param jobGroupName
      */
-    public static void deleteScheduleJob( Scheduler scheduler, String jobId, String jobGroupName ) {
+    public static void deleteScheduleJob( Scheduler scheduler, String jobName, String jobGroupName ) {
         try {
             //先暂停任务
-            scheduler.pauseTrigger(TriggerKey.triggerKey(jobId, jobGroupName));
+            scheduler.pauseTrigger(TriggerKey.triggerKey(jobName, jobGroupName));
             //停止任务
-            scheduler.unscheduleJob(TriggerKey.triggerKey(jobId, jobGroupName));
+            scheduler.unscheduleJob(TriggerKey.triggerKey(jobName, jobGroupName));
             //删除任务
-            scheduler.deleteJob(JobKey.jobKey(jobId, jobGroupName));
+            scheduler.deleteJob(JobKey.jobKey(jobName, jobGroupName));
         } catch (SchedulerException e) {
             System.out.println(e.toString());
         }
