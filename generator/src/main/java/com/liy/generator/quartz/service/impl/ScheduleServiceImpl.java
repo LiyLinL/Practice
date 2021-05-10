@@ -9,6 +9,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,23 +25,25 @@ public class ScheduleServiceImpl implements ScheduleService, InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
+        String jobName = "program1";
+        String jobClass = "com.liy.generator.quartz.Job.ProgramFactory1";
+        String cronExpression = "* 1 * * * ?";
         Map<String, Object> map = new HashMap<>();
         map.put("Name", "Test");
         map.put("Scheduler", "true");
 
-        ScheduleUtil.createScheduleJob(scheduler, "program1", "com.liy.generator.quartz.Job.ProgramFactory1", "default",
-                "description", "*/10 * * * * ?", map);
+        ScheduleUtil.createScheduleJob(scheduler, jobName, jobClass, "default",
+                "description", cronExpression, map);
 
         List<QuartzTaskInformations> list = quartzService.findJob();
         if (list.size() == 0) {
             QuartzTaskInformations quartzTaskInformations = new QuartzTaskInformations();
-            quartzTaskInformations.setVersion(1);
-            quartzTaskInformations.setTaskno("program1");
-            quartzTaskInformations.setTaskname("program1");
-            quartzTaskInformations.setSchedulerrule("*/10 * * * * ?");
-            quartzTaskInformations.setFrozenstatus("0");
-            quartzTaskInformations.setExecutorno("0");
-            quartzTaskInformations.setTimekey("0");
+            quartzTaskInformations.setTaskNo(jobName);
+            quartzTaskInformations.setTaskName(jobName);
+            quartzTaskInformations.setClassName(jobClass);
+            quartzTaskInformations.setSchedulerRule(cronExpression);
+            quartzTaskInformations.setFrozenStatus("0");
+            quartzTaskInformations.setCreateTime(new Date());
             quartzService.insertJob(quartzTaskInformations);
         }
     }
@@ -52,7 +55,7 @@ public class ScheduleServiceImpl implements ScheduleService, InitializingBean {
         map.put("Scheduler", "true");
 
         ScheduleUtil.createScheduleJob(scheduler, "program1", "com.liy.generator.quartz.Job.ProgramFactory1", "default",
-                "description", "*/10 * * * * ?", map);
+                "description", "* 1 * * * ?", map);
     }
 
     @Override

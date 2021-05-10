@@ -1,17 +1,19 @@
 package com.liy.generator.entity;
 
+import java.util.Date;
+
 public class QuartzTaskErrors {
     private Long id;
 
-    private String taskexecuterecordid;
+    private String taskExecuteRecordid;
 
-    private String errorkey;
+    private String errorKey;
 
-    private Long createtime;
+    private Date createTime;
 
-    private Long lastmodifytime;
+    private Date lastModifyTime;
 
-    private String errorvalue;
+    private String errorValue;
 
     public Long getId() {
         return id;
@@ -21,43 +23,43 @@ public class QuartzTaskErrors {
         this.id = id;
     }
 
-    public String getTaskexecuterecordid() {
-        return taskexecuterecordid;
+    public String getTaskExecuteRecordid() {
+        return taskExecuteRecordid;
     }
 
-    public void setTaskexecuterecordid(String taskexecuterecordid) {
-        this.taskexecuterecordid = taskexecuterecordid;
+    public void setTaskExecuteRecordid(String taskExecuteRecordid) {
+        this.taskExecuteRecordid = taskExecuteRecordid;
     }
 
-    public String getErrorkey() {
-        return errorkey;
+    public String getErrorKey() {
+        return errorKey;
     }
 
-    public void setErrorkey(String errorkey) {
-        this.errorkey = errorkey;
+    public void setErrorKey(String errorKey) {
+        this.errorKey = errorKey;
     }
 
-    public Long getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreatetime(Long createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Long getLastmodifytime() {
-        return lastmodifytime;
+    public Date getLastModifyTime() {
+        return lastModifyTime;
     }
 
-    public void setLastmodifytime(Long lastmodifytime) {
-        this.lastmodifytime = lastmodifytime;
+    public void setLastModifyTime(Date lastModifyTime) {
+        this.lastModifyTime = lastModifyTime;
     }
 
-    public String getErrorvalue() {
-        return errorvalue;
+    public String getErrorValue() {
+        return errorValue;
     }
 
-    public void setErrorvalue(String errorvalue) {
-        this.errorvalue = errorvalue;
+    public void setErrorValue(String errorValue) {
+        this.errorValue = errorValue;
     }
 }

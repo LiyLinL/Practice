@@ -1,6 +1,7 @@
 package com.liy.generator.entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class QuartzTaskErrorsExample {
@@ -164,263 +165,263 @@ public class QuartzTaskErrorsExample {
             return (Criteria) this;
         }
 
-        public Criteria andTaskexecuterecordidIsNull() {
-            addCriterion("TASKEXECUTERECORDID is null");
+        public Criteria andTaskExecuteRecordidIsNull() {
+            addCriterion("TASK_EXECUTE_RECORDID is null");
             return (Criteria) this;
         }
 
-        public Criteria andTaskexecuterecordidIsNotNull() {
-            addCriterion("TASKEXECUTERECORDID is not null");
+        public Criteria andTaskExecuteRecordidIsNotNull() {
+            addCriterion("TASK_EXECUTE_RECORDID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTaskexecuterecordidEqualTo(String value) {
-            addCriterion("TASKEXECUTERECORDID =", value, "taskexecuterecordid");
+        public Criteria andTaskExecuteRecordidEqualTo(String value) {
+            addCriterion("TASK_EXECUTE_RECORDID =", value, "taskExecuteRecordid");
             return (Criteria) this;
         }
 
-        public Criteria andTaskexecuterecordidNotEqualTo(String value) {
-            addCriterion("TASKEXECUTERECORDID <>", value, "taskexecuterecordid");
+        public Criteria andTaskExecuteRecordidNotEqualTo(String value) {
+            addCriterion("TASK_EXECUTE_RECORDID <>", value, "taskExecuteRecordid");
             return (Criteria) this;
         }
 
-        public Criteria andTaskexecuterecordidGreaterThan(String value) {
-            addCriterion("TASKEXECUTERECORDID >", value, "taskexecuterecordid");
+        public Criteria andTaskExecuteRecordidGreaterThan(String value) {
+            addCriterion("TASK_EXECUTE_RECORDID >", value, "taskExecuteRecordid");
             return (Criteria) this;
         }
 
-        public Criteria andTaskexecuterecordidGreaterThanOrEqualTo(String value) {
-            addCriterion("TASKEXECUTERECORDID >=", value, "taskexecuterecordid");
+        public Criteria andTaskExecuteRecordidGreaterThanOrEqualTo(String value) {
+            addCriterion("TASK_EXECUTE_RECORDID >=", value, "taskExecuteRecordid");
             return (Criteria) this;
         }
 
-        public Criteria andTaskexecuterecordidLessThan(String value) {
-            addCriterion("TASKEXECUTERECORDID <", value, "taskexecuterecordid");
+        public Criteria andTaskExecuteRecordidLessThan(String value) {
+            addCriterion("TASK_EXECUTE_RECORDID <", value, "taskExecuteRecordid");
             return (Criteria) this;
         }
 
-        public Criteria andTaskexecuterecordidLessThanOrEqualTo(String value) {
-            addCriterion("TASKEXECUTERECORDID <=", value, "taskexecuterecordid");
+        public Criteria andTaskExecuteRecordidLessThanOrEqualTo(String value) {
+            addCriterion("TASK_EXECUTE_RECORDID <=", value, "taskExecuteRecordid");
             return (Criteria) this;
         }
 
-        public Criteria andTaskexecuterecordidLike(String value) {
-            addCriterion("TASKEXECUTERECORDID like", value, "taskexecuterecordid");
+        public Criteria andTaskExecuteRecordidLike(String value) {
+            addCriterion("TASK_EXECUTE_RECORDID like", value, "taskExecuteRecordid");
             return (Criteria) this;
         }
 
-        public Criteria andTaskexecuterecordidNotLike(String value) {
-            addCriterion("TASKEXECUTERECORDID not like", value, "taskexecuterecordid");
+        public Criteria andTaskExecuteRecordidNotLike(String value) {
+            addCriterion("TASK_EXECUTE_RECORDID not like", value, "taskExecuteRecordid");
             return (Criteria) this;
         }
 
-        public Criteria andTaskexecuterecordidIn(List<String> values) {
-            addCriterion("TASKEXECUTERECORDID in", values, "taskexecuterecordid");
+        public Criteria andTaskExecuteRecordidIn(List<String> values) {
+            addCriterion("TASK_EXECUTE_RECORDID in", values, "taskExecuteRecordid");
             return (Criteria) this;
         }
 
-        public Criteria andTaskexecuterecordidNotIn(List<String> values) {
-            addCriterion("TASKEXECUTERECORDID not in", values, "taskexecuterecordid");
+        public Criteria andTaskExecuteRecordidNotIn(List<String> values) {
+            addCriterion("TASK_EXECUTE_RECORDID not in", values, "taskExecuteRecordid");
             return (Criteria) this;
         }
 
-        public Criteria andTaskexecuterecordidBetween(String value1, String value2) {
-            addCriterion("TASKEXECUTERECORDID between", value1, value2, "taskexecuterecordid");
+        public Criteria andTaskExecuteRecordidBetween(String value1, String value2) {
+            addCriterion("TASK_EXECUTE_RECORDID between", value1, value2, "taskExecuteRecordid");
             return (Criteria) this;
         }
 
-        public Criteria andTaskexecuterecordidNotBetween(String value1, String value2) {
-            addCriterion("TASKEXECUTERECORDID not between", value1, value2, "taskexecuterecordid");
+        public Criteria andTaskExecuteRecordidNotBetween(String value1, String value2) {
+            addCriterion("TASK_EXECUTE_RECORDID not between", value1, value2, "taskExecuteRecordid");
             return (Criteria) this;
         }
 
-        public Criteria andErrorkeyIsNull() {
-            addCriterion("ERRORKEY is null");
+        public Criteria andErrorKeyIsNull() {
+            addCriterion("ERROR_KEY is null");
             return (Criteria) this;
         }
 
-        public Criteria andErrorkeyIsNotNull() {
-            addCriterion("ERRORKEY is not null");
+        public Criteria andErrorKeyIsNotNull() {
+            addCriterion("ERROR_KEY is not null");
             return (Criteria) this;
         }
 
-        public Criteria andErrorkeyEqualTo(String value) {
-            addCriterion("ERRORKEY =", value, "errorkey");
+        public Criteria andErrorKeyEqualTo(String value) {
+            addCriterion("ERROR_KEY =", value, "errorKey");
             return (Criteria) this;
         }
 
-        public Criteria andErrorkeyNotEqualTo(String value) {
-            addCriterion("ERRORKEY <>", value, "errorkey");
+        public Criteria andErrorKeyNotEqualTo(String value) {
+            addCriterion("ERROR_KEY <>", value, "errorKey");
             return (Criteria) this;
         }
 
-        public Criteria andErrorkeyGreaterThan(String value) {
-            addCriterion("ERRORKEY >", value, "errorkey");
+        public Criteria andErrorKeyGreaterThan(String value) {
+            addCriterion("ERROR_KEY >", value, "errorKey");
             return (Criteria) this;
         }
 
-        public Criteria andErrorkeyGreaterThanOrEqualTo(String value) {
-            addCriterion("ERRORKEY >=", value, "errorkey");
+        public Criteria andErrorKeyGreaterThanOrEqualTo(String value) {
+            addCriterion("ERROR_KEY >=", value, "errorKey");
             return (Criteria) this;
         }
 
-        public Criteria andErrorkeyLessThan(String value) {
-            addCriterion("ERRORKEY <", value, "errorkey");
+        public Criteria andErrorKeyLessThan(String value) {
+            addCriterion("ERROR_KEY <", value, "errorKey");
             return (Criteria) this;
         }
 
-        public Criteria andErrorkeyLessThanOrEqualTo(String value) {
-            addCriterion("ERRORKEY <=", value, "errorkey");
+        public Criteria andErrorKeyLessThanOrEqualTo(String value) {
+            addCriterion("ERROR_KEY <=", value, "errorKey");
             return (Criteria) this;
         }
 
-        public Criteria andErrorkeyLike(String value) {
-            addCriterion("ERRORKEY like", value, "errorkey");
+        public Criteria andErrorKeyLike(String value) {
+            addCriterion("ERROR_KEY like", value, "errorKey");
             return (Criteria) this;
         }
 
-        public Criteria andErrorkeyNotLike(String value) {
-            addCriterion("ERRORKEY not like", value, "errorkey");
+        public Criteria andErrorKeyNotLike(String value) {
+            addCriterion("ERROR_KEY not like", value, "errorKey");
             return (Criteria) this;
         }
 
-        public Criteria andErrorkeyIn(List<String> values) {
-            addCriterion("ERRORKEY in", values, "errorkey");
+        public Criteria andErrorKeyIn(List<String> values) {
+            addCriterion("ERROR_KEY in", values, "errorKey");
             return (Criteria) this;
         }
 
-        public Criteria andErrorkeyNotIn(List<String> values) {
-            addCriterion("ERRORKEY not in", values, "errorkey");
+        public Criteria andErrorKeyNotIn(List<String> values) {
+            addCriterion("ERROR_KEY not in", values, "errorKey");
             return (Criteria) this;
         }
 
-        public Criteria andErrorkeyBetween(String value1, String value2) {
-            addCriterion("ERRORKEY between", value1, value2, "errorkey");
+        public Criteria andErrorKeyBetween(String value1, String value2) {
+            addCriterion("ERROR_KEY between", value1, value2, "errorKey");
             return (Criteria) this;
         }
 
-        public Criteria andErrorkeyNotBetween(String value1, String value2) {
-            addCriterion("ERRORKEY not between", value1, value2, "errorkey");
+        public Criteria andErrorKeyNotBetween(String value1, String value2) {
+            addCriterion("ERROR_KEY not between", value1, value2, "errorKey");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeIsNull() {
-            addCriterion("CREATETIME is null");
+        public Criteria andCreateTimeIsNull() {
+            addCriterion("CREATE_TIME is null");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeIsNotNull() {
-            addCriterion("CREATETIME is not null");
+        public Criteria andCreateTimeIsNotNull() {
+            addCriterion("CREATE_TIME is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeEqualTo(Long value) {
-            addCriterion("CREATETIME =", value, "createtime");
+        public Criteria andCreateTimeEqualTo(Date value) {
+            addCriterion("CREATE_TIME =", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeNotEqualTo(Long value) {
-            addCriterion("CREATETIME <>", value, "createtime");
+        public Criteria andCreateTimeNotEqualTo(Date value) {
+            addCriterion("CREATE_TIME <>", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeGreaterThan(Long value) {
-            addCriterion("CREATETIME >", value, "createtime");
+        public Criteria andCreateTimeGreaterThan(Date value) {
+            addCriterion("CREATE_TIME >", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeGreaterThanOrEqualTo(Long value) {
-            addCriterion("CREATETIME >=", value, "createtime");
+        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("CREATE_TIME >=", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeLessThan(Long value) {
-            addCriterion("CREATETIME <", value, "createtime");
+        public Criteria andCreateTimeLessThan(Date value) {
+            addCriterion("CREATE_TIME <", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeLessThanOrEqualTo(Long value) {
-            addCriterion("CREATETIME <=", value, "createtime");
+        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
+            addCriterion("CREATE_TIME <=", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeIn(List<Long> values) {
-            addCriterion("CREATETIME in", values, "createtime");
+        public Criteria andCreateTimeIn(List<Date> values) {
+            addCriterion("CREATE_TIME in", values, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeNotIn(List<Long> values) {
-            addCriterion("CREATETIME not in", values, "createtime");
+        public Criteria andCreateTimeNotIn(List<Date> values) {
+            addCriterion("CREATE_TIME not in", values, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeBetween(Long value1, Long value2) {
-            addCriterion("CREATETIME between", value1, value2, "createtime");
+        public Criteria andCreateTimeBetween(Date value1, Date value2) {
+            addCriterion("CREATE_TIME between", value1, value2, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeNotBetween(Long value1, Long value2) {
-            addCriterion("CREATETIME not between", value1, value2, "createtime");
+        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
+            addCriterion("CREATE_TIME not between", value1, value2, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastmodifytimeIsNull() {
-            addCriterion("LASTMODIFYTIME is null");
+        public Criteria andLastModifyTimeIsNull() {
+            addCriterion("LAST_MODIFY_TIME is null");
             return (Criteria) this;
         }
 
-        public Criteria andLastmodifytimeIsNotNull() {
-            addCriterion("LASTMODIFYTIME is not null");
+        public Criteria andLastModifyTimeIsNotNull() {
+            addCriterion("LAST_MODIFY_TIME is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLastmodifytimeEqualTo(Long value) {
-            addCriterion("LASTMODIFYTIME =", value, "lastmodifytime");
+        public Criteria andLastModifyTimeEqualTo(Date value) {
+            addCriterion("LAST_MODIFY_TIME =", value, "lastModifyTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastmodifytimeNotEqualTo(Long value) {
-            addCriterion("LASTMODIFYTIME <>", value, "lastmodifytime");
+        public Criteria andLastModifyTimeNotEqualTo(Date value) {
+            addCriterion("LAST_MODIFY_TIME <>", value, "lastModifyTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastmodifytimeGreaterThan(Long value) {
-            addCriterion("LASTMODIFYTIME >", value, "lastmodifytime");
+        public Criteria andLastModifyTimeGreaterThan(Date value) {
+            addCriterion("LAST_MODIFY_TIME >", value, "lastModifyTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastmodifytimeGreaterThanOrEqualTo(Long value) {
-            addCriterion("LASTMODIFYTIME >=", value, "lastmodifytime");
+        public Criteria andLastModifyTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("LAST_MODIFY_TIME >=", value, "lastModifyTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastmodifytimeLessThan(Long value) {
-            addCriterion("LASTMODIFYTIME <", value, "lastmodifytime");
+        public Criteria andLastModifyTimeLessThan(Date value) {
+            addCriterion("LAST_MODIFY_TIME <", value, "lastModifyTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastmodifytimeLessThanOrEqualTo(Long value) {
-            addCriterion("LASTMODIFYTIME <=", value, "lastmodifytime");
+        public Criteria andLastModifyTimeLessThanOrEqualTo(Date value) {
+            addCriterion("LAST_MODIFY_TIME <=", value, "lastModifyTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastmodifytimeIn(List<Long> values) {
-            addCriterion("LASTMODIFYTIME in", values, "lastmodifytime");
+        public Criteria andLastModifyTimeIn(List<Date> values) {
+            addCriterion("LAST_MODIFY_TIME in", values, "lastModifyTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastmodifytimeNotIn(List<Long> values) {
-            addCriterion("LASTMODIFYTIME not in", values, "lastmodifytime");
+        public Criteria andLastModifyTimeNotIn(List<Date> values) {
+            addCriterion("LAST_MODIFY_TIME not in", values, "lastModifyTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastmodifytimeBetween(Long value1, Long value2) {
-            addCriterion("LASTMODIFYTIME between", value1, value2, "lastmodifytime");
+        public Criteria andLastModifyTimeBetween(Date value1, Date value2) {
+            addCriterion("LAST_MODIFY_TIME between", value1, value2, "lastModifyTime");
             return (Criteria) this;
         }
 
-        public Criteria andLastmodifytimeNotBetween(Long value1, Long value2) {
-            addCriterion("LASTMODIFYTIME not between", value1, value2, "lastmodifytime");
+        public Criteria andLastModifyTimeNotBetween(Date value1, Date value2) {
+            addCriterion("LAST_MODIFY_TIME not between", value1, value2, "lastModifyTime");
             return (Criteria) this;
         }
     }

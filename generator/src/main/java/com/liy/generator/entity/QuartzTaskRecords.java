@@ -1,23 +1,25 @@
 package com.liy.generator.entity;
 
+import java.util.Date;
+
 public class QuartzTaskRecords {
     private Long id;
 
-    private String taskno;
+    private String taskNo;
 
-    private String timekeyvalue;
+    private String timeKeyValue;
 
-    private Long executetime;
+    private Date executeTime;
 
-    private String taskstatus;
+    private String taskStatus;
 
-    private Integer failcount;
+    private Integer failCount;
 
-    private String failreason;
+    private String failReason;
 
-    private Long createtime;
+    private Date createTime;
 
-    private Long lastmodifytime;
+    private Date lastModifyTime;
 
     public Long getId() {
         return id;
@@ -27,67 +29,67 @@ public class QuartzTaskRecords {
         this.id = id;
     }
 
-    public String getTaskno() {
-        return taskno;
+    public String getTaskNo() {
+        return taskNo;
     }
 
-    public void setTaskno(String taskno) {
-        this.taskno = taskno;
+    public void setTaskNo(String taskNo) {
+        this.taskNo = taskNo;
     }
 
-    public String getTimekeyvalue() {
-        return timekeyvalue;
+    public String getTimeKeyValue() {
+        return timeKeyValue;
     }
 
-    public void setTimekeyvalue(String timekeyvalue) {
-        this.timekeyvalue = timekeyvalue;
+    public void setTimeKeyValue(String timeKeyValue) {
+        this.timeKeyValue = timeKeyValue;
     }
 
-    public Long getExecutetime() {
-        return executetime;
+    public Date getExecuteTime() {
+        return executeTime;
     }
 
-    public void setExecutetime(Long executetime) {
-        this.executetime = executetime;
+    public void setExecuteTime(Date executeTime) {
+        this.executeTime = executeTime;
     }
 
-    public String getTaskstatus() {
-        return taskstatus;
+    public String getTaskStatus() {
+        return taskStatus;
     }
 
-    public void setTaskstatus(String taskstatus) {
-        this.taskstatus = taskstatus;
+    public void setTaskStatus(String taskStatus) {
+        this.taskStatus = taskStatus;
     }
 
-    public Integer getFailcount() {
-        return failcount;
+    public Integer getFailCount() {
+        return failCount;
     }
 
-    public void setFailcount(Integer failcount) {
-        this.failcount = failcount;
+    public void setFailCount(Integer failCount) {
+        this.failCount = failCount;
     }
 
-    public String getFailreason() {
-        return failreason;
+    public String getFailReason() {
+        return failReason;
     }
 
-    public void setFailreason(String failreason) {
-        this.failreason = failreason;
+    public void setFailReason(String failReason) {
+        this.failReason = failReason;
     }
 
-    public Long getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreatetime(Long createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Long getLastmodifytime() {
-        return lastmodifytime;
+    public Date getLastModifyTime() {
+        return lastModifyTime;
     }
 
-    public void setLastmodifytime(Long lastmodifytime) {
-        this.lastmodifytime = lastmodifytime;
+    public void setLastModifyTime(Date lastModifyTime) {
+        this.lastModifyTime = lastModifyTime;
     }
 }

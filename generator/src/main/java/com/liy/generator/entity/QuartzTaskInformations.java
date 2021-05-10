@@ -1,35 +1,29 @@
 package com.liy.generator.entity;
 
+import java.util.Date;
+
 public class QuartzTaskInformations {
     private Long id;
 
-    private Integer version;
+    private String taskNo;
 
-    private String taskno;
+    private String taskName;
 
-    private String taskname;
+    private String className;
 
-    private String schedulerrule;
+    private String executeParameter;
 
-    private String frozenstatus;
+    private String schedulerRule;
 
-    private String executorno;
+    private String frozenStatus;
 
-    private Long frozentime;
+    private Date frozenTime;
 
-    private Long unfrozentime;
+    private Date unfrozenTime;
 
-    private Long createtime;
+    private Date createTime;
 
-    private Long lastmodifytime;
-
-    private String sendtype;
-
-    private String url;
-
-    private String executeparamter;
-
-    private String timekey;
+    private Date lastModifyTime;
 
     public Long getId() {
         return id;
@@ -39,115 +33,83 @@ public class QuartzTaskInformations {
         this.id = id;
     }
 
-    public Integer getVersion() {
-        return version;
+    public String getTaskNo() {
+        return taskNo;
     }
 
-    public void setVersion(Integer version) {
-        this.version = version;
+    public void setTaskNo(String taskNo) {
+        this.taskNo = taskNo;
     }
 
-    public String getTaskno() {
-        return taskno;
+    public String getTaskName() {
+        return taskName;
     }
 
-    public void setTaskno(String taskno) {
-        this.taskno = taskno;
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
     }
 
-    public String getTaskname() {
-        return taskname;
+    public String getClassName() {
+        return className;
     }
 
-    public void setTaskname(String taskname) {
-        this.taskname = taskname;
+    public void setClassName(String className) {
+        this.className = className;
     }
 
-    public String getSchedulerrule() {
-        return schedulerrule;
+    public String getExecuteParameter() {
+        return executeParameter;
     }
 
-    public void setSchedulerrule(String schedulerrule) {
-        this.schedulerrule = schedulerrule;
+    public void setExecuteParameter(String executeParameter) {
+        this.executeParameter = executeParameter;
     }
 
-    public String getFrozenstatus() {
-        return frozenstatus;
+    public String getSchedulerRule() {
+        return schedulerRule;
     }
 
-    public void setFrozenstatus(String frozenstatus) {
-        this.frozenstatus = frozenstatus;
+    public void setSchedulerRule(String schedulerRule) {
+        this.schedulerRule = schedulerRule;
     }
 
-    public String getExecutorno() {
-        return executorno;
+    public String getFrozenStatus() {
+        return frozenStatus;
     }
 
-    public void setExecutorno(String executorno) {
-        this.executorno = executorno;
+    public void setFrozenStatus(String frozenStatus) {
+        this.frozenStatus = frozenStatus;
     }
 
-    public Long getFrozentime() {
-        return frozentime;
+    public Date getFrozenTime() {
+        return frozenTime;
     }
 
-    public void setFrozentime(Long frozentime) {
-        this.frozentime = frozentime;
+    public void setFrozenTime(Date frozenTime) {
+        this.frozenTime = frozenTime;
     }
 
-    public Long getUnfrozentime() {
-        return unfrozentime;
+    public Date getUnfrozenTime() {
+        return unfrozenTime;
     }
 
-    public void setUnfrozentime(Long unfrozentime) {
-        this.unfrozentime = unfrozentime;
+    public void setUnfrozenTime(Date unfrozenTime) {
+        this.unfrozenTime = unfrozenTime;
     }
 
-    public Long getCreatetime() {
-        return createtime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreatetime(Long createtime) {
-        this.createtime = createtime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Long getLastmodifytime() {
-        return lastmodifytime;
+    public Date getLastModifyTime() {
+        return lastModifyTime;
     }
 
-    public void setLastmodifytime(Long lastmodifytime) {
-        this.lastmodifytime = lastmodifytime;
-    }
-
-    public String getSendtype() {
-        return sendtype;
-    }
-
-    public void setSendtype(String sendtype) {
-        this.sendtype = sendtype;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getExecuteparamter() {
-        return executeparamter;
-    }
-
-    public void setExecuteparamter(String executeparamter) {
-        this.executeparamter = executeparamter;
-    }
-
-    public String getTimekey() {
-        return timekey;
-    }
-
-    public void setTimekey(String timekey) {
-        this.timekey = timekey;
+    public void setLastModifyTime(Date lastModifyTime) {
+        this.lastModifyTime = lastModifyTime;
     }
 }

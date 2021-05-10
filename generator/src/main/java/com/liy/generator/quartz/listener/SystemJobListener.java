@@ -37,17 +37,17 @@ public class SystemJobListener extends JobListenerSupport {
 
         if (jobException != null) {
             System.out.println("Fail");
-            quartzTaskRecords.setTaskstatus("Fail");
+            quartzTaskRecords.setTaskStatus("Fail");
         } else {
             System.out.println("Success");
-            quartzTaskRecords.setTaskstatus("Success");
+            quartzTaskRecords.setTaskStatus("Success");
         }
 
         String jobKey = context.getJobDetail().getKey().toString();
         System.out.println(jobKey + " ==== " + new Date());
 
-        quartzTaskRecords.setTaskno(jobName);
-        quartzTaskRecords.setExecutetime(0L);
+        quartzTaskRecords.setTaskNo(jobName);
+        quartzTaskRecords.setExecuteTime(new Date());
         quartzService.insertJobRecords(quartzTaskRecords);
     }
 }

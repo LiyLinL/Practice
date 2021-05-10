@@ -3,14 +3,14 @@
 <mapper namespace="com.liy.generator.mapper.QuartzTaskRecordsMapper">
   <resultMap id="BaseResultMap" type="com.liy.generator.entity.QuartzTaskRecords">
     <id column="ID" jdbcType="BIGINT" property="id" />
-    <result column="TASKNO" jdbcType="VARCHAR" property="taskno" />
-    <result column="TIMEKEYVALUE" jdbcType="VARCHAR" property="timekeyvalue" />
-    <result column="EXECUTETIME" jdbcType="BIGINT" property="executetime" />
-    <result column="TASKSTATUS" jdbcType="VARCHAR" property="taskstatus" />
-    <result column="FAILCOUNT" jdbcType="INTEGER" property="failcount" />
-    <result column="FAILREASON" jdbcType="VARCHAR" property="failreason" />
-    <result column="CREATETIME" jdbcType="BIGINT" property="createtime" />
-    <result column="LASTMODIFYTIME" jdbcType="BIGINT" property="lastmodifytime" />
+    <result column="TASK_NO" jdbcType="NVARCHAR" property="taskNo" />
+    <result column="TIME_KEY_VALUE" jdbcType="NVARCHAR" property="timeKeyValue" />
+    <result column="EXECUTE_TIME" jdbcType="TIMESTAMP" property="executeTime" />
+    <result column="TASK_STATUS" jdbcType="NVARCHAR" property="taskStatus" />
+    <result column="FAIL_COUNT" jdbcType="INTEGER" property="failCount" />
+    <result column="FAIL_REASON" jdbcType="NVARCHAR" property="failReason" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="LAST_MODIFY_TIME" jdbcType="TIMESTAMP" property="lastModifyTime" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -71,8 +71,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    ID, TASKNO, TIMEKEYVALUE, EXECUTETIME, TASKSTATUS, FAILCOUNT, FAILREASON, CREATETIME, 
-    LASTMODIFYTIME
+    ID, TASK_NO, TIME_KEY_VALUE, EXECUTE_TIME, TASK_STATUS, FAIL_COUNT, FAIL_REASON, 
+    CREATE_TIME, LAST_MODIFY_TIME
   </sql>
   <select id="selectByExample" parameterType="com.liy.generator.entity.QuartzTaskRecordsExample" resultMap="BaseResultMap">
     select
@@ -105,13 +105,13 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.liy.generator.entity.QuartzTaskRecords">
-    insert into QUARTZ_TASK_RECORDS (ID, TASKNO, TIMEKEYVALUE, 
-      EXECUTETIME, TASKSTATUS, FAILCOUNT, 
-      FAILREASON, CREATETIME, LASTMODIFYTIME
+    insert into QUARTZ_TASK_RECORDS (ID, TASK_NO, TIME_KEY_VALUE, 
+      EXECUTE_TIME, TASK_STATUS, FAIL_COUNT, 
+      FAIL_REASON, CREATE_TIME, LAST_MODIFY_TIME
       )
-    values (#{id,jdbcType=BIGINT}, #{taskno,jdbcType=VARCHAR}, #{timekeyvalue,jdbcType=VARCHAR}, 
-      #{executetime,jdbcType=BIGINT}, #{taskstatus,jdbcType=VARCHAR}, #{failcount,jdbcType=INTEGER}, 
-      #{failreason,jdbcType=VARCHAR}, #{createtime,jdbcType=BIGINT}, #{lastmodifytime,jdbcType=BIGINT}
+    values (#{id,jdbcType=BIGINT}, #{taskNo,jdbcType=NVARCHAR}, #{timeKeyValue,jdbcType=NVARCHAR}, 
+      #{executeTime,jdbcType=TIMESTAMP}, #{taskStatus,jdbcType=NVARCHAR}, #{failCount,jdbcType=INTEGER}, 
+      #{failReason,jdbcType=NVARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{lastModifyTime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.liy.generator.entity.QuartzTaskRecords">
@@ -120,58 +120,58 @@
       <if test="id != null">
         ID,
       </if>
-      <if test="taskno != null">
-        TASKNO,
+      <if test="taskNo != null">
+        TASK_NO,
       </if>
-      <if test="timekeyvalue != null">
-        TIMEKEYVALUE,
+      <if test="timeKeyValue != null">
+        TIME_KEY_VALUE,
       </if>
-      <if test="executetime != null">
-        EXECUTETIME,
+      <if test="executeTime != null">
+        EXECUTE_TIME,
       </if>
-      <if test="taskstatus != null">
-        TASKSTATUS,
+      <if test="taskStatus != null">
+        TASK_STATUS,
       </if>
-      <if test="failcount != null">
-        FAILCOUNT,
+      <if test="failCount != null">
+        FAIL_COUNT,
       </if>
-      <if test="failreason != null">
-        FAILREASON,
+      <if test="failReason != null">
+        FAIL_REASON,
       </if>
-      <if test="createtime != null">
-        CREATETIME,
+      <if test="createTime != null">
+        CREATE_TIME,
       </if>
-      <if test="lastmodifytime != null">
-        LASTMODIFYTIME,
+      <if test="lastModifyTime != null">
+        LAST_MODIFY_TIME,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="taskno != null">
-        #{taskno,jdbcType=VARCHAR},
+      <if test="taskNo != null">
+        #{taskNo,jdbcType=NVARCHAR},
       </if>
-      <if test="timekeyvalue != null">
-        #{timekeyvalue,jdbcType=VARCHAR},
+      <if test="timeKeyValue != null">
+        #{timeKeyValue,jdbcType=NVARCHAR},
       </if>
-      <if test="executetime != null">
-        #{executetime,jdbcType=BIGINT},
+      <if test="executeTime != null">
+        #{executeTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="taskstatus != null">
-        #{taskstatus,jdbcType=VARCHAR},
+      <if test="taskStatus != null">
+        #{taskStatus,jdbcType=NVARCHAR},
       </if>
-      <if test="failcount != null">
-        #{failcount,jdbcType=INTEGER},
+      <if test="failCount != null">
+        #{failCount,jdbcType=INTEGER},
       </if>
-      <if test="failreason != null">
-        #{failreason,jdbcType=VARCHAR},
+      <if test="failReason != null">
+        #{failReason,jdbcType=NVARCHAR},
       </if>
-      <if test="createtime != null">
-        #{createtime,jdbcType=BIGINT},
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="lastmodifytime != null">
-        #{lastmodifytime,jdbcType=BIGINT},
+      <if test="lastModifyTime != null">
+        #{lastModifyTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -187,29 +187,29 @@
       <if test="record.id != null">
         ID = #{record.id,jdbcType=BIGINT},
       </if>
-      <if test="record.taskno != null">
-        TASKNO = #{record.taskno,jdbcType=VARCHAR},
+      <if test="record.taskNo != null">
+        TASK_NO = #{record.taskNo,jdbcType=NVARCHAR},
       </if>
-      <if test="record.timekeyvalue != null">
-        TIMEKEYVALUE = #{record.timekeyvalue,jdbcType=VARCHAR},
+      <if test="record.timeKeyValue != null">
+        TIME_KEY_VALUE = #{record.timeKeyValue,jdbcType=NVARCHAR},
       </if>
-      <if test="record.executetime != null">
-        EXECUTETIME = #{record.executetime,jdbcType=BIGINT},
+      <if test="record.executeTime != null">
+        EXECUTE_TIME = #{record.executeTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.taskstatus != null">
-        TASKSTATUS = #{record.taskstatus,jdbcType=VARCHAR},
+      <if test="record.taskStatus != null">
+        TASK_STATUS = #{record.taskStatus,jdbcType=NVARCHAR},
       </if>
-      <if test="record.failcount != null">
-        FAILCOUNT = #{record.failcount,jdbcType=INTEGER},
+      <if test="record.failCount != null">
+        FAIL_COUNT = #{record.failCount,jdbcType=INTEGER},
       </if>
-      <if test="record.failreason != null">
-        FAILREASON = #{record.failreason,jdbcType=VARCHAR},
+      <if test="record.failReason != null">
+        FAIL_REASON = #{record.failReason,jdbcType=NVARCHAR},
       </if>
-      <if test="record.createtime != null">
-        CREATETIME = #{record.createtime,jdbcType=BIGINT},
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.lastmodifytime != null">
-        LASTMODIFYTIME = #{record.lastmodifytime,jdbcType=BIGINT},
+      <if test="record.lastModifyTime != null">
+        LAST_MODIFY_TIME = #{record.lastModifyTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null">
@@ -219,14 +219,14 @@
   <update id="updateByExample" parameterType="map">
     update QUARTZ_TASK_RECORDS
     set ID = #{record.id,jdbcType=BIGINT},
-      TASKNO = #{record.taskno,jdbcType=VARCHAR},
-      TIMEKEYVALUE = #{record.timekeyvalue,jdbcType=VARCHAR},
-      EXECUTETIME = #{record.executetime,jdbcType=BIGINT},
-      TASKSTATUS = #{record.taskstatus,jdbcType=VARCHAR},
-      FAILCOUNT = #{record.failcount,jdbcType=INTEGER},
-      FAILREASON = #{record.failreason,jdbcType=VARCHAR},
-      CREATETIME = #{record.createtime,jdbcType=BIGINT},
-      LASTMODIFYTIME = #{record.lastmodifytime,jdbcType=BIGINT}
+      TASK_NO = #{record.taskNo,jdbcType=NVARCHAR},
+      TIME_KEY_VALUE = #{record.timeKeyValue,jdbcType=NVARCHAR},
+      EXECUTE_TIME = #{record.executeTime,jdbcType=TIMESTAMP},
+      TASK_STATUS = #{record.taskStatus,jdbcType=NVARCHAR},
+      FAIL_COUNT = #{record.failCount,jdbcType=INTEGER},
+      FAIL_REASON = #{record.failReason,jdbcType=NVARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      LAST_MODIFY_TIME = #{record.lastModifyTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -234,43 +234,43 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.liy.generator.entity.QuartzTaskRecords">
     update QUARTZ_TASK_RECORDS
     <set>
-      <if test="taskno != null">
-        TASKNO = #{taskno,jdbcType=VARCHAR},
+      <if test="taskNo != null">
+        TASK_NO = #{taskNo,jdbcType=NVARCHAR},
       </if>
-      <if test="timekeyvalue != null">
-        TIMEKEYVALUE = #{timekeyvalue,jdbcType=VARCHAR},
+      <if test="timeKeyValue != null">
+        TIME_KEY_VALUE = #{timeKeyValue,jdbcType=NVARCHAR},
       </if>
-      <if test="executetime != null">
-        EXECUTETIME = #{executetime,jdbcType=BIGINT},
+      <if test="executeTime != null">
+        EXECUTE_TIME = #{executeTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="taskstatus != null">
-        TASKSTATUS = #{taskstatus,jdbcType=VARCHAR},
+      <if test="taskStatus != null">
+        TASK_STATUS = #{taskStatus,jdbcType=NVARCHAR},
       </if>
-      <if test="failcount != null">
-        FAILCOUNT = #{failcount,jdbcType=INTEGER},
+      <if test="failCount != null">
+        FAIL_COUNT = #{failCount,jdbcType=INTEGER},
       </if>
-      <if test="failreason != null">
-        FAILREASON = #{failreason,jdbcType=VARCHAR},
+      <if test="failReason != null">
+        FAIL_REASON = #{failReason,jdbcType=NVARCHAR},
       </if>
-      <if test="createtime != null">
-        CREATETIME = #{createtime,jdbcType=BIGINT},
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="lastmodifytime != null">
-        LASTMODIFYTIME = #{lastmodifytime,jdbcType=BIGINT},
+      <if test="lastModifyTime != null">
+        LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where ID = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.liy.generator.entity.QuartzTaskRecords">
     update QUARTZ_TASK_RECORDS
-    set TASKNO = #{taskno,jdbcType=VARCHAR},
-      TIMEKEYVALUE = #{timekeyvalue,jdbcType=VARCHAR},
-      EXECUTETIME = #{executetime,jdbcType=BIGINT},
-      TASKSTATUS = #{taskstatus,jdbcType=VARCHAR},
-      FAILCOUNT = #{failcount,jdbcType=INTEGER},
-      FAILREASON = #{failreason,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=BIGINT},
-      LASTMODIFYTIME = #{lastmodifytime,jdbcType=BIGINT}
+    set TASK_NO = #{taskNo,jdbcType=NVARCHAR},
+      TIME_KEY_VALUE = #{timeKeyValue,jdbcType=NVARCHAR},
+      EXECUTE_TIME = #{executeTime,jdbcType=TIMESTAMP},
+      TASK_STATUS = #{taskStatus,jdbcType=NVARCHAR},
+      FAIL_COUNT = #{failCount,jdbcType=INTEGER},
+      FAIL_REASON = #{failReason,jdbcType=NVARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      LAST_MODIFY_TIME = #{lastModifyTime,jdbcType=TIMESTAMP}
     where ID = #{id,jdbcType=BIGINT}
   </update>
 </mapper>
