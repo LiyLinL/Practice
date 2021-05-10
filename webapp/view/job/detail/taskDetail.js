@@ -7,7 +7,7 @@ sap.ui.define(
     ],
     function (Fragment, Object, JSONModel, formatter) {
         'use strict';
-        return Object.extend('gen.view.job.taskDetail', {
+        return Object.extend('gen.view.job.detail.taskDetail', {
             formatter: formatter,
             showDialog: function (self, data) {
                 this.self = self;
@@ -22,7 +22,7 @@ sap.ui.define(
                 if (!this.dialog) {
                     this.dialog = Fragment.load({
                         id: 'taskDetail',
-                        name: 'gen.view.job.taskDetail',
+                        name: 'gen.view.job.detail.taskDetail',
                         controller: this
                     }).then(function (oDialog) {
                         oDialog.setTitle('Task Detail');

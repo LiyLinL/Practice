@@ -2,7 +2,7 @@ sap.ui.define(
     [
         'gen/core/BaseController',
         'sap/ui/model/json/JSONModel',
-        'gen/view/job/taskDetail',
+        'gen/view/job/detail/taskDetail',
         'gen/formatter/formatter',
         'gen/view/job/jobApi'
     ],
