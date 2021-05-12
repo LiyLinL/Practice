@@ -5,7 +5,6 @@ import com.liy.generator.domain.TaskInfo;
 import com.liy.generator.entity.QuartzTaskInformations;
 import com.liy.generator.quartz.service.ScheduleService;
 import com.liy.generator.service.QuartzService;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -57,7 +56,7 @@ public class QuartzController {
     }
 
     @GetMapping("/findJobRecords")
-    public List<RecordsInfo> findJobRecords( @Param("taskNo") String taskNo ) {
+    public List<RecordsInfo> findJobRecords( @RequestParam("taskNo") String taskNo ) {
         return quartzService.findJobRecords(taskNo);
     }
 }
