@@ -42,7 +42,7 @@ public class QuartzRepoImpl implements QuartzRepo {
     @Override
     public List<QuartzTaskRecords> findJobRecords( QuartzTaskRecords quartzTaskRecords ) {
         QuartzTaskRecordsExample example = new QuartzTaskRecordsExample();
-        example.createCriteria().andTaskNoEqualTo(quartzTaskRecords.getTaskNo());
+        example.createCriteria().andTaskNameEqualTo(quartzTaskRecords.getTaskName());
         return quartzTaskRecordsMapper.selectByExample(example);
     }
 

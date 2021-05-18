@@ -5,7 +5,7 @@ import java.util.Date;
 public class QuartzTaskInformations {
     private Long id;
 
-    private String taskNo;
+    private String site;
 
     private String taskName;
 
@@ -17,11 +17,9 @@ public class QuartzTaskInformations {
 
     private String frozenStatus;
 
-    private Date frozenTime;
+    private String production;
 
-    private Date unfrozenTime;
-
-    private Date createTime;
+    private Date createdTime;
 
     private Date lastModifyTime;
 
@@ -33,12 +31,12 @@ public class QuartzTaskInformations {
         this.id = id;
     }
 
-    public String getTaskNo() {
-        return taskNo;
+    public String getSite() {
+        return site;
     }
 
-    public void setTaskNo(String taskNo) {
-        this.taskNo = taskNo;
+    public void setSite(String site) {
+        this.site = site;
     }
 
     public String getTaskName() {
@@ -81,28 +79,20 @@ public class QuartzTaskInformations {
         this.frozenStatus = frozenStatus;
     }
 
-    public Date getFrozenTime() {
-        return frozenTime;
+    public String getProduction() {
+        return production;
     }
 
-    public void setFrozenTime(Date frozenTime) {
-        this.frozenTime = frozenTime;
+    public void setProduction(String production) {
+        this.production = production;
     }
 
-    public Date getUnfrozenTime() {
-        return unfrozenTime;
+    public Date getCreatedTime() {
+        return createdTime;
     }
 
-    public void setUnfrozenTime(Date unfrozenTime) {
-        this.unfrozenTime = unfrozenTime;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setCreatedTime(Date createdTime) {
+        this.createdTime = createdTime;
     }
 
     public Date getLastModifyTime() {

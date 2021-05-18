@@ -35,9 +35,9 @@ public class QuartzServiceImpl implements QuartzService {
     }
 
     @Override
-    public List<RecordsInfo> findJobRecords( String taskNo ) {
+    public List<RecordsInfo> findJobRecords( String taskName ) {
         QuartzTaskRecords quartzTaskRecords = new QuartzTaskRecords();
-        quartzTaskRecords.setTaskNo(taskNo);
+        quartzTaskRecords.setTaskName(taskName);
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 

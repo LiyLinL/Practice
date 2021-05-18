@@ -165,143 +165,143 @@ public class QuartzTaskRecordsExample {
             return (Criteria) this;
         }
 
-        public Criteria andTaskNoIsNull() {
-            addCriterion("TASK_NO is null");
+        public Criteria andSiteIsNull() {
+            addCriterion("SITE is null");
             return (Criteria) this;
         }
 
-        public Criteria andTaskNoIsNotNull() {
-            addCriterion("TASK_NO is not null");
+        public Criteria andSiteIsNotNull() {
+            addCriterion("SITE is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTaskNoEqualTo(String value) {
-            addCriterion("TASK_NO =", value, "taskNo");
+        public Criteria andSiteEqualTo(String value) {
+            addCriterion("SITE =", value, "site");
             return (Criteria) this;
         }
 
-        public Criteria andTaskNoNotEqualTo(String value) {
-            addCriterion("TASK_NO <>", value, "taskNo");
+        public Criteria andSiteNotEqualTo(String value) {
+            addCriterion("SITE <>", value, "site");
             return (Criteria) this;
         }
 
-        public Criteria andTaskNoGreaterThan(String value) {
-            addCriterion("TASK_NO >", value, "taskNo");
+        public Criteria andSiteGreaterThan(String value) {
+            addCriterion("SITE >", value, "site");
             return (Criteria) this;
         }
 
-        public Criteria andTaskNoGreaterThanOrEqualTo(String value) {
-            addCriterion("TASK_NO >=", value, "taskNo");
+        public Criteria andSiteGreaterThanOrEqualTo(String value) {
+            addCriterion("SITE >=", value, "site");
             return (Criteria) this;
         }
 
-        public Criteria andTaskNoLessThan(String value) {
-            addCriterion("TASK_NO <", value, "taskNo");
+        public Criteria andSiteLessThan(String value) {
+            addCriterion("SITE <", value, "site");
             return (Criteria) this;
         }
 
-        public Criteria andTaskNoLessThanOrEqualTo(String value) {
-            addCriterion("TASK_NO <=", value, "taskNo");
+        public Criteria andSiteLessThanOrEqualTo(String value) {
+            addCriterion("SITE <=", value, "site");
             return (Criteria) this;
         }
 
-        public Criteria andTaskNoLike(String value) {
-            addCriterion("TASK_NO like", value, "taskNo");
+        public Criteria andSiteLike(String value) {
+            addCriterion("SITE like", value, "site");
             return (Criteria) this;
         }
 
-        public Criteria andTaskNoNotLike(String value) {
-            addCriterion("TASK_NO not like", value, "taskNo");
+        public Criteria andSiteNotLike(String value) {
+            addCriterion("SITE not like", value, "site");
             return (Criteria) this;
         }
 
-        public Criteria andTaskNoIn(List<String> values) {
-            addCriterion("TASK_NO in", values, "taskNo");
+        public Criteria andSiteIn(List<String> values) {
+            addCriterion("SITE in", values, "site");
             return (Criteria) this;
         }
 
-        public Criteria andTaskNoNotIn(List<String> values) {
-            addCriterion("TASK_NO not in", values, "taskNo");
+        public Criteria andSiteNotIn(List<String> values) {
+            addCriterion("SITE not in", values, "site");
             return (Criteria) this;
         }
 
-        public Criteria andTaskNoBetween(String value1, String value2) {
-            addCriterion("TASK_NO between", value1, value2, "taskNo");
+        public Criteria andSiteBetween(String value1, String value2) {
+            addCriterion("SITE between", value1, value2, "site");
             return (Criteria) this;
         }
 
-        public Criteria andTaskNoNotBetween(String value1, String value2) {
-            addCriterion("TASK_NO not between", value1, value2, "taskNo");
+        public Criteria andSiteNotBetween(String value1, String value2) {
+            addCriterion("SITE not between", value1, value2, "site");
             return (Criteria) this;
         }
 
-        public Criteria andTimeKeyValueIsNull() {
-            addCriterion("TIME_KEY_VALUE is null");
+        public Criteria andTaskNameIsNull() {
+            addCriterion("TASK_NAME is null");
             return (Criteria) this;
         }
 
-        public Criteria andTimeKeyValueIsNotNull() {
-            addCriterion("TIME_KEY_VALUE is not null");
+        public Criteria andTaskNameIsNotNull() {
+            addCriterion("TASK_NAME is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTimeKeyValueEqualTo(String value) {
-            addCriterion("TIME_KEY_VALUE =", value, "timeKeyValue");
+        public Criteria andTaskNameEqualTo(String value) {
+            addCriterion("TASK_NAME =", value, "taskName");
             return (Criteria) this;
         }
 
-        public Criteria andTimeKeyValueNotEqualTo(String value) {
-            addCriterion("TIME_KEY_VALUE <>", value, "timeKeyValue");
+        public Criteria andTaskNameNotEqualTo(String value) {
+            addCriterion("TASK_NAME <>", value, "taskName");
             return (Criteria) this;
         }
 
-        public Criteria andTimeKeyValueGreaterThan(String value) {
-            addCriterion("TIME_KEY_VALUE >", value, "timeKeyValue");
+        public Criteria andTaskNameGreaterThan(String value) {
+            addCriterion("TASK_NAME >", value, "taskName");
             return (Criteria) this;
         }
 
-        public Criteria andTimeKeyValueGreaterThanOrEqualTo(String value) {
-            addCriterion("TIME_KEY_VALUE >=", value, "timeKeyValue");
+        public Criteria andTaskNameGreaterThanOrEqualTo(String value) {
+            addCriterion("TASK_NAME >=", value, "taskName");
             return (Criteria) this;
         }
 
-        public Criteria andTimeKeyValueLessThan(String value) {
-            addCriterion("TIME_KEY_VALUE <", value, "timeKeyValue");
+        public Criteria andTaskNameLessThan(String value) {
+            addCriterion("TASK_NAME <", value, "taskName");
             return (Criteria) this;
         }
 
-        public Criteria andTimeKeyValueLessThanOrEqualTo(String value) {
-            addCriterion("TIME_KEY_VALUE <=", value, "timeKeyValue");
+        public Criteria andTaskNameLessThanOrEqualTo(String value) {
+            addCriterion("TASK_NAME <=", value, "taskName");
             return (Criteria) this;
         }
 
-        public Criteria andTimeKeyValueLike(String value) {
-            addCriterion("TIME_KEY_VALUE like", value, "timeKeyValue");
+        public Criteria andTaskNameLike(String value) {
+            addCriterion("TASK_NAME like", value, "taskName");
             return (Criteria) this;
         }
 
-        public Criteria andTimeKeyValueNotLike(String value) {
-            addCriterion("TIME_KEY_VALUE not like", value, "timeKeyValue");
+        public Criteria andTaskNameNotLike(String value) {
+            addCriterion("TASK_NAME not like", value, "taskName");
             return (Criteria) this;
         }
 
-        public Criteria andTimeKeyValueIn(List<String> values) {
-            addCriterion("TIME_KEY_VALUE in", values, "timeKeyValue");
+        public Criteria andTaskNameIn(List<String> values) {
+            addCriterion("TASK_NAME in", values, "taskName");
             return (Criteria) this;
         }
 
-        public Criteria andTimeKeyValueNotIn(List<String> values) {
-            addCriterion("TIME_KEY_VALUE not in", values, "timeKeyValue");
+        public Criteria andTaskNameNotIn(List<String> values) {
+            addCriterion("TASK_NAME not in", values, "taskName");
             return (Criteria) this;
         }
 
-        public Criteria andTimeKeyValueBetween(String value1, String value2) {
-            addCriterion("TIME_KEY_VALUE between", value1, value2, "timeKeyValue");
+        public Criteria andTaskNameBetween(String value1, String value2) {
+            addCriterion("TASK_NAME between", value1, value2, "taskName");
             return (Criteria) this;
         }
 
-        public Criteria andTimeKeyValueNotBetween(String value1, String value2) {
-            addCriterion("TIME_KEY_VALUE not between", value1, value2, "timeKeyValue");
+        public Criteria andTaskNameNotBetween(String value1, String value2) {
+            addCriterion("TASK_NAME not between", value1, value2, "taskName");
             return (Criteria) this;
         }
 
@@ -435,66 +435,6 @@ public class QuartzTaskRecordsExample {
             return (Criteria) this;
         }
 
-        public Criteria andFailCountIsNull() {
-            addCriterion("FAIL_COUNT is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFailCountIsNotNull() {
-            addCriterion("FAIL_COUNT is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFailCountEqualTo(Integer value) {
-            addCriterion("FAIL_COUNT =", value, "failCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFailCountNotEqualTo(Integer value) {
-            addCriterion("FAIL_COUNT <>", value, "failCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFailCountGreaterThan(Integer value) {
-            addCriterion("FAIL_COUNT >", value, "failCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFailCountGreaterThanOrEqualTo(Integer value) {
-            addCriterion("FAIL_COUNT >=", value, "failCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFailCountLessThan(Integer value) {
-            addCriterion("FAIL_COUNT <", value, "failCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFailCountLessThanOrEqualTo(Integer value) {
-            addCriterion("FAIL_COUNT <=", value, "failCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFailCountIn(List<Integer> values) {
-            addCriterion("FAIL_COUNT in", values, "failCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFailCountNotIn(List<Integer> values) {
-            addCriterion("FAIL_COUNT not in", values, "failCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFailCountBetween(Integer value1, Integer value2) {
-            addCriterion("FAIL_COUNT between", value1, value2, "failCount");
-            return (Criteria) this;
-        }
-
-        public Criteria andFailCountNotBetween(Integer value1, Integer value2) {
-            addCriterion("FAIL_COUNT not between", value1, value2, "failCount");
-            return (Criteria) this;
-        }
-
         public Criteria andFailReasonIsNull() {
             addCriterion("FAIL_REASON is null");
             return (Criteria) this;
@@ -565,123 +505,63 @@ public class QuartzTaskRecordsExample {
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeIsNull() {
-            addCriterion("CREATE_TIME is null");
+        public Criteria andCreatedTimeIsNull() {
+            addCriterion("CREATED_TIME is null");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeIsNotNull() {
-            addCriterion("CREATE_TIME is not null");
+        public Criteria andCreatedTimeIsNotNull() {
+            addCriterion("CREATED_TIME is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeEqualTo(Date value) {
-            addCriterion("CREATE_TIME =", value, "createTime");
+        public Criteria andCreatedTimeEqualTo(Date value) {
+            addCriterion("CREATED_TIME =", value, "createdTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotEqualTo(Date value) {
-            addCriterion("CREATE_TIME <>", value, "createTime");
+        public Criteria andCreatedTimeNotEqualTo(Date value) {
+            addCriterion("CREATED_TIME <>", value, "createdTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeGreaterThan(Date value) {
-            addCriterion("CREATE_TIME >", value, "createTime");
+        public Criteria andCreatedTimeGreaterThan(Date value) {
+            addCriterion("CREATED_TIME >", value, "createdTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("CREATE_TIME >=", value, "createTime");
+        public Criteria andCreatedTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("CREATED_TIME >=", value, "createdTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeLessThan(Date value) {
-            addCriterion("CREATE_TIME <", value, "createTime");
+        public Criteria andCreatedTimeLessThan(Date value) {
+            addCriterion("CREATED_TIME <", value, "createdTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
-            addCriterion("CREATE_TIME <=", value, "createTime");
+        public Criteria andCreatedTimeLessThanOrEqualTo(Date value) {
+            addCriterion("CREATED_TIME <=", value, "createdTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeIn(List<Date> values) {
-            addCriterion("CREATE_TIME in", values, "createTime");
+        public Criteria andCreatedTimeIn(List<Date> values) {
+            addCriterion("CREATED_TIME in", values, "createdTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotIn(List<Date> values) {
-            addCriterion("CREATE_TIME not in", values, "createTime");
+        public Criteria andCreatedTimeNotIn(List<Date> values) {
+            addCriterion("CREATED_TIME not in", values, "createdTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeBetween(Date value1, Date value2) {
-            addCriterion("CREATE_TIME between", value1, value2, "createTime");
+        public Criteria andCreatedTimeBetween(Date value1, Date value2) {
+            addCriterion("CREATED_TIME between", value1, value2, "createdTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
-            addCriterion("CREATE_TIME not between", value1, value2, "createTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastModifyTimeIsNull() {
-            addCriterion("LAST_MODIFY_TIME is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastModifyTimeIsNotNull() {
-            addCriterion("LAST_MODIFY_TIME is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastModifyTimeEqualTo(Date value) {
-            addCriterion("LAST_MODIFY_TIME =", value, "lastModifyTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastModifyTimeNotEqualTo(Date value) {
-            addCriterion("LAST_MODIFY_TIME <>", value, "lastModifyTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastModifyTimeGreaterThan(Date value) {
-            addCriterion("LAST_MODIFY_TIME >", value, "lastModifyTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastModifyTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("LAST_MODIFY_TIME >=", value, "lastModifyTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastModifyTimeLessThan(Date value) {
-            addCriterion("LAST_MODIFY_TIME <", value, "lastModifyTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastModifyTimeLessThanOrEqualTo(Date value) {
-            addCriterion("LAST_MODIFY_TIME <=", value, "lastModifyTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastModifyTimeIn(List<Date> values) {
-            addCriterion("LAST_MODIFY_TIME in", values, "lastModifyTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastModifyTimeNotIn(List<Date> values) {
-            addCriterion("LAST_MODIFY_TIME not in", values, "lastModifyTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastModifyTimeBetween(Date value1, Date value2) {
-            addCriterion("LAST_MODIFY_TIME between", value1, value2, "lastModifyTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andLastModifyTimeNotBetween(Date value1, Date value2) {
-            addCriterion("LAST_MODIFY_TIME not between", value1, value2, "lastModifyTime");
+        public Criteria andCreatedTimeNotBetween(Date value1, Date value2) {
+            addCriterion("CREATED_TIME not between", value1, value2, "createdTime");
             return (Criteria) this;
         }
     }

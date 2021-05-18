@@ -5,21 +5,17 @@ import java.util.Date;
 public class QuartzTaskRecords {
     private Long id;
 
-    private String taskNo;
+    private String site;
 
-    private String timeKeyValue;
+    private String taskName;
 
     private Date executeTime;
 
     private String taskStatus;
 
-    private Integer failCount;
-
     private String failReason;
 
-    private Date createTime;
-
-    private Date lastModifyTime;
+    private Date createdTime;
 
     public Long getId() {
         return id;
@@ -29,20 +25,20 @@ public class QuartzTaskRecords {
         this.id = id;
     }
 
-    public String getTaskNo() {
-        return taskNo;
+    public String getSite() {
+        return site;
     }
 
-    public void setTaskNo(String taskNo) {
-        this.taskNo = taskNo;
+    public void setSite(String site) {
+        this.site = site;
     }
 
-    public String getTimeKeyValue() {
-        return timeKeyValue;
+    public String getTaskName() {
+        return taskName;
     }
 
-    public void setTimeKeyValue(String timeKeyValue) {
-        this.timeKeyValue = timeKeyValue;
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
     }
 
     public Date getExecuteTime() {
@@ -61,14 +57,6 @@ public class QuartzTaskRecords {
         this.taskStatus = taskStatus;
     }
 
-    public Integer getFailCount() {
-        return failCount;
-    }
-
-    public void setFailCount(Integer failCount) {
-        this.failCount = failCount;
-    }
-
     public String getFailReason() {
         return failReason;
     }
@@ -77,19 +65,11 @@ public class QuartzTaskRecords {
         this.failReason = failReason;
     }
 
-    public Date getCreateTime() {
-        return createTime;
+    public Date getCreatedTime() {
+        return createdTime;
     }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Date getLastModifyTime() {
-        return lastModifyTime;
-    }
-
-    public void setLastModifyTime(Date lastModifyTime) {
-        this.lastModifyTime = lastModifyTime;
+    public void setCreatedTime(Date createdTime) {
+        this.createdTime = createdTime;
     }
 }

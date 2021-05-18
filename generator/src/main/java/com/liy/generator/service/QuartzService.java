@@ -14,7 +14,7 @@ public interface QuartzService {
 
     void updateJob( QuartzTaskInformations quartzTaskInformations );
 
-    List<RecordsInfo> findJobRecords( String taskNo );
+    List<RecordsInfo> findJobRecords( String taskName );
 
     void insertJobRecords( QuartzTaskRecords quartzTaskRecords );
 }

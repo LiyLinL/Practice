@@ -46,7 +46,7 @@ public class SystemJobListener extends JobListenerSupport {
         String jobKey = context.getJobDetail().getKey().toString();
         System.out.println(jobKey + " ==== " + new Date());
 
-        quartzTaskRecords.setTaskNo(jobName);
+        quartzTaskRecords.setTaskName(jobName);
         quartzTaskRecords.setExecuteTime(new Date());
         quartzService.insertJobRecords(quartzTaskRecords);
     }
