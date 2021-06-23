@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -25,24 +24,24 @@ public class ScheduleServiceImpl implements ScheduleService, InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        Map<String, Object> map = new HashMap<>();
-        map.put("Name", "Test");
-        map.put("Scheduler", "true");
-
-        List<QuartzTaskInformations> list = quartzService.findJob();
-        if (list.size() > 0) {
-            list.forEach(obj -> {
-                ScheduleUtil.createScheduleJob(scheduler, obj.getTaskName(), obj.getClassName(), "default",
-                        "description", obj.getSchedulerRule(), map);
-
-                if (!obj.getFrozenStatus().equals("0")) {
-                    QuartzTaskInformations quartzTaskInformations = new QuartzTaskInformations();
-                    quartzTaskInformations.setTaskName(obj.getTaskName());
-                    quartzTaskInformations.setFrozenStatus("0");
-                    quartzService.updateJob(quartzTaskInformations);
-                }
-            });
-        }
+//        Map<String, Object> map = new HashMap<>();
+//        map.put("Name", "Test");
+//        map.put("Scheduler", "true");
+//
+//        List<QuartzTaskInformations> list = quartzService.findJob();
+//        if (list.size() > 0) {
+//            list.forEach(obj -> {
+//                ScheduleUtil.createScheduleJob(scheduler, obj.getTaskName(), obj.getClassName(), "default",
+//                        "description", obj.getSchedulerRule(), map);
+//
+//                if (!obj.getFrozenStatus().equals("0")) {
+//                    QuartzTaskInformations quartzTaskInformations = new QuartzTaskInformations();
+//                    quartzTaskInformations.setTaskName(obj.getTaskName());
+//                    quartzTaskInformations.setFrozenStatus("0");
+//                    quartzService.updateJob(quartzTaskInformations);
+//                }
+//            });
+//        }
     }
 
     @Override

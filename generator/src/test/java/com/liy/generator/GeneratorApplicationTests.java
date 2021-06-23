@@ -34,6 +34,7 @@ import javax.jms.Destination;
 import javax.jms.JMSException;
 import java.io.*;
 import java.net.URI;
+import java.text.ParseException;
 import java.util.*;
 
 @RunWith(SpringRunner.class)
@@ -240,6 +241,7 @@ public class GeneratorApplicationTests {
     }
 
     @Test
-    public void te() {
+    public void te() throws ParseException {
+        String a= "TEST";
     }
 }
