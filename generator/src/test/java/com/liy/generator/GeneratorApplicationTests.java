@@ -243,5 +243,6 @@ public class GeneratorApplicationTests {
     @Test
     public void te() throws ParseException {
         String a = "tesg";
+        String b = "B";
     }
 }
