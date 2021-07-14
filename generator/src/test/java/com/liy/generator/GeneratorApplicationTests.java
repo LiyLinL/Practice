@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.liy.generator.entity.Jackson;
 import com.liy.generator.jms.jmsService;
-import org.apache.activemq.command.ActiveMQQueue;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
 import org.apache.http.entity.StringEntity;
@@ -30,7 +29,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.WebApplicationContext;
 
-import javax.jms.Destination;
 import javax.jms.JMSException;
 import java.io.*;
 import java.net.URI;
@@ -210,22 +208,24 @@ public class GeneratorApplicationTests {
 
     @Test
     public void jms() throws InterruptedException, IOException, JMSException {
-//        Jackson jackson = new Jackson();
-//        jackson.setAlways("A");
-//        jackson.setSome("B");
-//        ObjectMapper objectMapper = new ObjectMapper();
-//        String json = objectMapper.writeValueAsString(jackson);
+        Jackson jackson = new Jackson();
+        jackson.setMessageId("plot.check.in.process");
+        jackson.setSite("1000");
+        jackson.setCarrierId("TLLD5123A20190001");
+        jackson.setSn("LD5123A2201900001");
+        jackson.setOperation("41001848-1-0-9000");
+        jackson.setResource("RESOUCR_01");
+        jackson.setOther1("6");
+        jackson.setOther2("2");
+        jackson.setMold("2");
 
-        Destination destination1 = new ActiveMQQueue("test1");
-        jmsService.sendMessage("lot.check.in.notice", "AAAAAAAAAAA");
+        ObjectMapper objectMapper = new ObjectMapper();
+        String json = objectMapper.writeValueAsString(jackson);
 
-//        jackson = objectMapper.readValue((String) obj, Jackson.class);
-//        System.out.println(jackson.getAlways());
+        jmsService.sendMessage("plot.check.out.process.outside", json);
 
-//        Destination destination2 = new ActiveMQQueue("test2");
-//        for (int i = 0; i < 10; i++) {
-//            jmsService.sendTemp(destination2, "AAAAAAAAAAAAAA");
-//        }
+//        Response response = objectMapper.readValue((String) obj, Response.class);
+//        System.out.println(jackson.getMessageId());
     }
 
     @Test
@@ -233,7 +233,6 @@ public class GeneratorApplicationTests {
         ObjectMapper objectMapper = new ObjectMapper();
 
         Jackson jackson = new Jackson();
-        jackson.setSome("AAA");
 
         String json = objectMapper.writeValueAsString(jackson);
         Map<String, String> map = objectMapper.readValue(json, new TypeReference<Map<String, String>>() {
@@ -242,7 +241,5 @@ public class GeneratorApplicationTests {
 
     @Test
     public void te() throws ParseException {
-        String a = "tesg";
-        String b = "B";
     }
 }

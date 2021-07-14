@@ -12,10 +12,16 @@ import javax.jms.JMSException;
 @Service
 public class jmsService {
 
-    public Object sendMessage( String qName, String message ) {
+    public Object sendAndReceiveMessage( String qName, String message ) {
         JmsMessagingTemplate jmsMessagingTemplate = jMessageTemplate();
         Destination destination = new ActiveMQQueue(qName);
         return jmsMessagingTemplate.convertSendAndReceive(destination, message, Object.class);
+    }
+
+    public void sendMessage( String qName, String message ) {
+        JmsMessagingTemplate jmsMessagingTemplate = jMessageTemplate();
+        Destination destination = new ActiveMQQueue(qName);
+        jmsMessagingTemplate.convertAndSend(destination, message);
     }
 
     public void sendTemp( Destination destination, String message ) throws JMSException {
@@ -29,7 +35,7 @@ public class jmsService {
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
 //        String url = "failover://(tcp://localhost:61616,tcp://localhost:61626)?randomize=false";
 //        String url = "failover://(tcp://192.168.137.242:61616)?randomize=false";
-        String url = "tcp://192.168.137.242:61616";
+        String url = "tcp://localhost:61626";
         connectionFactory.setBrokerURL(url);
         connectionFactory.setPassword("admin");
         connectionFactory.setUserName("admin");
