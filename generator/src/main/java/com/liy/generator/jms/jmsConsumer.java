@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 import javax.jms.JMSException;
 import java.io.IOException;
-import java.util.Date;
 
 @Component
 public class jmsConsumer {
@@ -34,10 +33,9 @@ public class jmsConsumer {
 //        }
     }
 
-    //    @JmsListener(id = "consumerMessage2", destination = "lot.check.in.notice", containerFactory = "jmsListenerContainerQueue")
+    //    @JmsListener(id = "consumerMessage2", destination = "remote.command.process", containerFactory = "jmsListenerContainerQueue")
 //    @Async
     public void consumerMessage2( ActiveMQTextMessage text ) throws JMSException, IOException {
-        System.out.println(Thread.currentThread().getName() + "=====" + text.getText() + "====TEST2=====" + new Date());
-        jmsService.sendTemp(text.getReplyTo(), "{\"RESULT\":\"1\", \"MESSAGE\":\"1\"}");
+        jmsService.sendTemp(text.getReplyTo(), "{\"RESULT\":\"2\", \"MESSAGE\":\"TEST_ERROR\"}");
     }
 }

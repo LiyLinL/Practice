@@ -29,11 +29,14 @@ public class GeneratorApplication {
 
     @GetMapping("restart")
     public void restart() {
-        ExecutorService threadPool = new ThreadPoolExecutor(1, 1, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1), new ThreadPoolExecutor.DiscardOldestPolicy());
+        ExecutorService threadPool = new ThreadPoolExecutor(1, 1, 0,
+                TimeUnit.SECONDS, new ArrayBlockingQueue<>(1), new ThreadPoolExecutor.DiscardOldestPolicy());
+
         threadPool.execute(() -> {
             context.close();
             context = SpringApplication.run(GeneratorApplication.class, args);
         });
+
         threadPool.shutdown();
     }
 

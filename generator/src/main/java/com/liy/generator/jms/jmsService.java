@@ -33,14 +33,17 @@ public class jmsService {
         JmsMessagingTemplate jmsMessagingTemplate = new JmsMessagingTemplate();
         JmsTemplate jmsTemplate = new JmsTemplate();
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
+
 //        String url = "failover://(tcp://localhost:61616,tcp://localhost:61626)?randomize=false";
 //        String url = "failover://(tcp://192.168.137.242:61616)?randomize=false";
-        String url = "tcp://localhost:61626";
+
+        String url = "tcp://192.168.137.230:61616";
         connectionFactory.setBrokerURL(url);
         connectionFactory.setPassword("admin");
         connectionFactory.setUserName("admin");
+
         jmsTemplate.setConnectionFactory(connectionFactory);
-        jmsTemplate.setReceiveTimeout(5000);
+        jmsTemplate.setReceiveTimeout(60000);
         jmsTemplate.setPubSubDomain(false);
         jmsMessagingTemplate.setJmsTemplate(jmsTemplate);
         return jmsMessagingTemplate;

@@ -1,8 +1,5 @@
 package com.liy.generator;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.liy.generator.entity.Jackson;
 import com.liy.generator.jms.jmsService;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpEntityEnclosingRequestBase;
@@ -32,7 +29,6 @@ import org.springframework.web.context.WebApplicationContext;
 import javax.jms.JMSException;
 import java.io.*;
 import java.net.URI;
-import java.text.ParseException;
 import java.util.*;
 
 @RunWith(SpringRunner.class)
@@ -208,38 +204,13 @@ public class GeneratorApplicationTests {
 
     @Test
     public void jms() throws InterruptedException, IOException, JMSException {
-        Jackson jackson = new Jackson();
-        jackson.setMessageId("plot.check.in.process");
-        jackson.setSite("1000");
-        jackson.setCarrierId("TLLD5123A20190001");
-        jackson.setSn("LD5123A2201900001");
-        jackson.setOperation("41001848-1-0-9000");
-        jackson.setResource("RESOUCR_01");
-        jackson.setOther1("6");
-        jackson.setOther2("2");
-        jackson.setMold("2");
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        String json = objectMapper.writeValueAsString(jackson);
-
-        jmsService.sendMessage("plot.check.out.process.outside", json);
-
-//        Response response = objectMapper.readValue((String) obj, Response.class);
-//        System.out.println(jackson.getMessageId());
     }
 
     @Test
     public void jackson() throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        Jackson jackson = new Jackson();
-
-        String json = objectMapper.writeValueAsString(jackson);
-        Map<String, String> map = objectMapper.readValue(json, new TypeReference<Map<String, String>>() {
-        });
     }
 
     @Test
-    public void te() throws ParseException {
+    public void te() {
     }
 }

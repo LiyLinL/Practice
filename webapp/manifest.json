@@ -72,6 +72,11 @@
                     "name": "job",
                     "pattern": "job:?req:",
                     "target": "job"
+                },
+                {
+                    "name": "video",
+                    "pattern": "video:?req:",
+                    "target": "video"
                 }
             ],
             "targets": {
@@ -86,6 +91,9 @@
                 },
                 "job": {
                     "viewName": "view.job.job"
+                },
+                "video": {
+                    "viewName": "view.video.video"
                 }
             }
         }
