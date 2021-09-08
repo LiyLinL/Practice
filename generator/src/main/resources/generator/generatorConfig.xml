@@ -50,7 +50,7 @@
         <!-- enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
             enableSelectByExample="false" selectByExampleQueryId="false" -->
         <!--已生成的表 <table schema="demo" tableName="USER" domainObjectName="User"></table> -->
-        <table tableName="${generatorConfig.table}" schema="${generatorConfig.schema}">
+        <table tableName="${generatorConfig.table}" schema="${generatorConfig.schema}" domainObjectName="${generatorConfig.domainObjectName}">
             <property name="modelOnly" value="false"/>
         </table>
     </context>
