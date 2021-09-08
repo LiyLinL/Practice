@@ -107,7 +107,8 @@
                     "viewName": "view.scheduler.s"
                 },
                 "job": {
-                    "viewName": "view.job.job"
+                    "viewName": "view.job.job",
+                    "title": "{{job.cron}}"
                 },
                 "video": {
                     "viewName": "view.video.video"
