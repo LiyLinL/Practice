@@ -18,27 +18,11 @@
             data-sap-ui-bindingSyntax="complex"
             data-sap-ui-preload="async"
             sap-ui-debug="true"
+            data-sap-ui-onInit="module:gen/index"
             data-sap-ui-resourceroots='{
             "gen": "./"
         }'
         ></script>
-        <script type="text/javascript">
-            sap.ui.getCore().attachInit(function () {
-                $().ready(function () {
-                    //避免頁面保留cache
-                    $.ajaxSetup({
-                        cache: false
-                    });
-                });
-                new sap.ui.core.ComponentContainer({
-                    height: '100%',
-                    name: 'gen',
-                    settings: {
-                        id: 'gen'
-                    }
-                }).placeAt('content');
-            });
-        </script>
         <!-- Less -->
         <!-- <link rel="stylesheet/less" type="text/css" href="/css/testStyle.less" />
         <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.11.1/less.min.js"></script> -->
