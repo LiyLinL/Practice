@@ -9,7 +9,16 @@
         "applicationVersion": {
             "version": "1.0.0"
         },
-        "dataSources": {}
+        "dataSources": {
+            "appContext": {
+                "uri": "json/app.json",
+                "type": "JSON"
+            },
+            "test": {
+                "uri": "json/test.json",
+                "type": "JSON"
+            }
+        }
     },
     "sap.ui": {
         "technology": "UI5",
@@ -37,6 +46,14 @@
                 "settings": {
                     "bundleName": "gen.i18n.i18n"
                 }
+            },
+            "config": {
+                "type": "sap.ui.model.json.JSONModel",
+                "dataSource": "appContext"
+            },
+            "tJson": {
+                "type": "sap.ui.model.json.JSONModel",
+                "dataSource": "test"
             }
         },
         "resources": {

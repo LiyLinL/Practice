@@ -1,0 +1,42 @@
+<sap.ui.core.mvc:View controllerName="gen.view.video.video"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:sap.ui.core.mvc="sap.ui.core.mvc"
+    displayBlock="true">
+    <Page id="me"
+        title="Example"
+        class="sapUiSizeCompact">
+        <content>
+            <Button text="open"
+                press="vOperation('open')"
+                class="sapUiTinyMargin"></Button>
+            <Button text="screenshots"
+                press="vOperation('screen')"
+                class="sapUiTinyMargin"></Button>
+            <Button text="copy"
+                press="vOperation('copy')"
+                class="sapUiTinyMargin"></Button>
+            <Button text="upload"
+                press="vOperation('upload')"
+                class="sapUiTinyMargin"></Button>
+            <Button text="download"
+                press="vOperation('download')"
+                class="sapUiTinyMargin"></Button>
+            <Button text="close"
+                press="vOperation('close')"
+                class="sapUiTinyMargin"></Button>
+            <Button text="export"
+                press="vOperation('export')"
+                class="sapUiTinyMargin"></Button>
+
+            <core:HTML content="
+            &lt;video id='video' width='0%' height='0%' autoplay&gt;&lt;/video&gt;  
+            &lt;canvas id='canvas' width='200' heigth='150'&gt;&lt;/canvas&gt; 
+            &lt;image id='image' width='200' height='150'&gt;&lt;/image&gt;">
+            </core:HTML>
+        </content>
+    </Page>
+</sap.ui.core.mvc:View>

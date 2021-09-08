@@ -31,7 +31,10 @@ sap.ui.define(
                     })
                 );
 
-                this.getTask();
+                var config = this.getData('config');
+                var tJson = this.getData('tJson');
+
+                // this.getTask();
             },
             getTask: function () {
                 var self = this,
