@@ -3,6 +3,7 @@ sap.ui.define(
     function (BaseController, JSONModel) {
         'use strict';
         return BaseController.extend('gen.view.scheduler.s', {
+            constructor: function () {},
             onInit: function () {
                 var me = this,
                     oView = this.getView();
