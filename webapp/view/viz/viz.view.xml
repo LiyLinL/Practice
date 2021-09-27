@@ -1,0 +1,61 @@
+<sap.ui.core.mvc:View controllerName="gen.view.viz.viz"
+    xmlns="sap.m"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:sap.ui.core.mvc="sap.ui.core.mvc"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+    <Page title="Example"
+        class="sapUiSizeCompact">
+        <content>
+            <Input value="{/input1}"></Input>
+            <Input value="{/input2}"></Input>
+            <Button text="stop input1"
+                press="stop1"></Button>
+            <FlexBox width="100%"
+                height="50%"
+                renderType="Bare">
+                <viz:VizFrame id="idVizFrame"
+                    uiConfig="{applicationSet:'fiori'}"
+                    height='100%'
+                    width="100%">
+                    <viz:dataset>
+                        <viz.data:FlattenedDataset data="{/milk}">
+                            <viz.data:dimensions>
+                                <viz.data:DimensionDefinition name="key"
+                                    value="{key}"
+                                    dataType="string">
+                                </viz.data:DimensionDefinition>
+                            </viz.data:dimensions>
+                            <viz.data:measures>
+                                <viz.data:MeasureDefinition name="Demands"
+                                    value="{Demands}" />
+                                <viz.data:MeasureDefinition name="Supplies"
+                                    value="{Supplies}" />
+                                <viz.data:MeasureDefinition name="Last"
+                                    value="{Last}" />
+                            </viz.data:measures>
+                        </viz.data:FlattenedDataset>
+                    </viz:dataset>
+                    <viz:feeds>
+                        <viz.feeds:FeedItem uid="valueAxis"
+                            type="Measure"
+                            values="Demands" />
+                        <viz.feeds:FeedItem uid="valueAxis"
+                            type="Measure"
+                            values="Supplies" />
+                        <viz.feeds:FeedItem uid="valueAxis"
+                            type="Measure"
+                            values="Last" />
+                        <viz.feeds:FeedItem uid="categoryAxis"
+                            type="Dimension"
+                            values="key">
+                        </viz.feeds:FeedItem>
+                    </viz:feeds>
+                </viz:VizFrame>
+            </FlexBox>
+        </content>
+    </Page>
+</sap.ui.core.mvc:View>

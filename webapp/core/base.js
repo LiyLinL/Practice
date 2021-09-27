@@ -16,6 +16,8 @@ base.prototype = {
                 includeScript(sap.ui.require.toUrl('gen/utils/moment.js'));
                 includeScript(sap.ui.require.toUrl('gen/utils/excelJS.min.js'));
                 includeScript(sap.ui.require.toUrl('gen/utils/FileSaver.js'));
+                includeScript(sap.ui.require.toUrl('gen/ajax.js'));
+                includeScript(sap.ui.require.toUrl('gen/core/fn.js'));
             }
         );
         return this;

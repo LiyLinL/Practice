@@ -94,6 +94,11 @@
                     "name": "video",
                     "pattern": "video:?req:",
                     "target": "video"
+                },
+                {
+                    "name": "viz",
+                    "pattern": "viz:?req:",
+                    "target": "viz"
                 }
             ],
             "targets": {
@@ -112,6 +117,9 @@
                 },
                 "video": {
                     "viewName": "view.video.video"
+                },
+                "viz": {
+                    "viewName": "view.viz.viz"
                 }
             }
         }
