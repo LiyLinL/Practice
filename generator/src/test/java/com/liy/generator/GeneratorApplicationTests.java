@@ -211,7 +211,6 @@ public class GeneratorApplicationTests {
     }
 
     @Test
-    public void te() {
-        System.out.println();
+    public void te() throws IOException {
     }
 }

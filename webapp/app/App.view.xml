@@ -1,6 +1,7 @@
 <mvc:View controllerName="gen.app.App"
     xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" autoFocus="false">
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true">
     <App id="app">
         <pages>
             <Page showHeader="false">
