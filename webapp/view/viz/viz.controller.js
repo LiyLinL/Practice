@@ -1,14 +1,11 @@
 sap.ui.define(
-    ['gen/core/BaseController', 'sap/viz/ui5/format/ChartFormatter'],
+    ['gen/core/BaseController', 'sap/viz/ui5/format/ChartFormatter', 'gen/core/fn'],
     function (BaseController, ChartFormatter) {
         'use strict';
         return BaseController.extend('gen.view.viz.viz', {
             onInit: function () {
                 var me = this;
                 var oView = this.getView();
-
-                var a = test;
-                test.b('a');
 
                 // 更改當前畫面配色
                 sap.ui.getCore().applyTheme('sap_bluecrystal');

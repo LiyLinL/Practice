@@ -1,10 +1,9 @@
-sap.ui.define([
-    "gen/core/BaseController"
-], function (BaseController) {
-    "use strict";
+sap.ui.define(['gen/core/BaseController'], function (BaseController) {
+    'use strict';
 
-    return BaseController.extend("gen.app.App", {
-        onInit: function () {}
+    return BaseController.extend('gen.app.App', {
+        onInit: function () {
+            $setApi.set('aaaa');
+        }
     });
-
 });

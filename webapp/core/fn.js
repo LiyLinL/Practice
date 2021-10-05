@@ -1,23 +1,24 @@
 (function (global, factory) {
-    global.test = factory();
+    global.$fn = factory();
 })(this, function () {
     'use strict';
 
-    var h = function () {
-        return 'b';
+    var api = $setApi.get();
+
+    var get = function (fn1, fn2) {
+        api.get(
+            '',
+            'html',
+            function () {
+                fn1();
+            },
+            function () {
+                fn2();
+            }
+        );
     };
 
-    function b(a, b, c) {
-        return function (a, b, c) {
-            console.log(a);
-        };
-    }
-
-    function test() {
-        return h.apply(null, arguments);
-    }
-
-    test.b = b;
-
-    return test;
+    return {
+        get: get
+    };
 });

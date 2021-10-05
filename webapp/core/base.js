@@ -10,14 +10,6 @@ base.prototype = {
                 // style
                 includeStylesheet(sap.ui.require.toUrl('gen/style.css'));
                 includeStylesheet(sap.ui.require.toUrl('gen/css/dhtmlxscheduler_material.css'));
-
-                // js
-                includeScript(sap.ui.require.toUrl('gen/utils/decimal.min.js'));
-                includeScript(sap.ui.require.toUrl('gen/utils/moment.js'));
-                includeScript(sap.ui.require.toUrl('gen/utils/excelJS.min.js'));
-                includeScript(sap.ui.require.toUrl('gen/utils/FileSaver.js'));
-                includeScript(sap.ui.require.toUrl('gen/ajax.js'));
-                includeScript(sap.ui.require.toUrl('gen/core/fn.js'));
             }
         );
         return this;
