@@ -195,6 +195,18 @@ sap.ui.define(
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
                 oRouter.getRoute(sName).attachPatternMatched(handle, this);
 
+                // 改變配色
+                const viewNames = ['workCalender'];
+                oRouter.getRoute(sName).attachMatched(function (oEvent) {
+                    var viewName = oEvent.getParameter('name');
+
+                    if (viewNames.includes(viewName)) {
+                        sap.ui.getCore().applyTheme('sap_fiori_3_dark');
+                    } else {
+                        sap.ui.getCore().applyTheme('sap_belize_plus');
+                    }
+                }, this);
+
                 oRouter.attachTitleChanged(function (oEvent) {
                     var sTitle = oEvent.getParameter('title');
 

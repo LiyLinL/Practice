@@ -1,0 +1,251 @@
+<sap.ui.core.mvc:View controllerName="gen.view.kanban.kanban"
+	xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:sap.ui.core.mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:f="sap.f"
+	displayBlock="true">
+	<Page class="sapUiSizeCompact">
+		<html:style>
+			.auto-Flashing {
+				color: black;
+				background-color: white;
+			}
+			.item-text {
+  				font-size: 1rem !important;
+  				padding: 3px;
+  				border-radius: 3px;
+			}
+			.kanban-title,
+			.kanban-text {
+  				font-size: 1.5rem !important;
+  				padding: 5px;
+  				border-radius: 5px;
+			}
+			.kanban-title {
+  				/* border: 1px solid rgb(14, 11, 8); */
+ 				background-color: rgb(255, 156, 27);
+			}
+			.kanban-title-production {
+  				background-color: rgb(88, 153, 218);
+			}
+			.kanban-title-NC {
+  				background-color: rgb(246, 99, 100);
+			}
+			.kanban-title-effiency {
+  				background-color: rgb(113, 201, 137);
+			}
+		</html:style>
+		<customHeader>
+			<Bar class="title-midle blackBar">
+				<contentMiddle>
+					<Title level="H3"
+						text="{i18n>kanban.title}" />
+				</contentMiddle>
+				<contentRight>
+					<Button type="Transparent"
+						icon="sap-icon://action-settings"
+						press="openSetting" />
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+			<VBox renderType="Bare"
+				width="100%">
+				<FlexBox renderType="Bare"
+					alignItems="Center"
+					alignContent="Center"
+					class="sapUiSmallMargin">
+					<!-- 物料編號 -->
+					<Label class="myLabel item-text"
+						vAlign="Middle"
+						text="{i18n>kanban.label1}"/>
+					<Label class="item-text"
+						vAlign="Middle"
+						text="{/item}"></Label>
+				</FlexBox>
+				<FlexBox renderType="Bare"
+					alignItems="Center"
+					alignContent="Center"
+					class="sapUiSmallMarginBegin sapUiSmallMarginEnd sapUiSmallMarginBottom">
+					<!-- 物料說明 -->
+					<Label class="myLabel item-text"
+						vAlign="Middle"
+						text="{i18n>kanban.label2}"/>
+					<Label class="item-text"
+						vAlign="Middle"
+						text="{/itemDesc}"></Label>
+				</FlexBox>
+				<HBox/>
+			</VBox>
+			<f:Card class="sapUiTinyMargin"
+				width="99%">
+				<f:content>
+					<VBox>
+						<HBox width="100%"
+							renderType="Bare">
+							<f:Card class="sapUiTinyMargin"
+								width="33%">
+								<f:content>
+									<VBox justifyContent="Center"
+										alignItems="Center"
+										renderType="Bare"
+										height="6.8rem">
+										<!-- 計畫產出／實際生產 -->
+										<Title class="kanban-title"
+											text="{i18n>kanban.label3}"
+											width="85%"
+											textAlign="Center" />
+										<Text id="planQty"
+											class="kanban-text sapUiTinyMarginTop"
+											text="{/planQty}" />
+									</VBox>
+								</f:content>
+							</f:Card>
+							<f:Card class="sapUiTinyMargin"
+								width="33%">
+								<f:content>
+									<VBox justifyContent="Center"
+										alignItems="Center"
+										renderType="Bare"
+										height="6.8rem">
+										<!-- 計畫達成率 -->
+										<Title class="kanban-title"
+											width="85%"
+											textAlign="Center"
+											text="{i18n>kanban.label4}" />
+										<Text id="completionRate"
+											class="kanban-text sapUiTinyMarginTop"
+											text="{/completionRate}" />
+									</VBox>
+								</f:content>
+							</f:Card>
+							<f:Card class="sapUiTinyMargin"
+								width="33%">
+								<f:content>
+									<VBox renderType="Bare"
+										justifyContent="Center"
+										alignItems="Center"
+										height="6.8rem">
+										<!-- 直通良率 -->
+										<Title class="kanban-title"
+											width="85%"
+											textAlign="Center"
+											text="{i18n>kanban.label5}" />
+										<Text id="yieldRate"
+											class="kanban-text sapUiTinyMarginTop"
+											text="{/yieldRate}" />
+									</VBox>
+								</f:content>
+							</f:Card>
+						</HBox>
+						<HBox width="100%"
+							renderType="Bare">
+							<f:Card class="sapUiTinyMargin"
+								width="33%">
+								<f:content>
+									<VBox renderType="Bare"
+										justifyContent="Center"
+										alignItems="Center"
+										height="6.8rem">
+										<!-- 目前各作業在製量 -->
+										<Title class="kanban-title kanban-title-production"
+											width="85%"
+											textAlign="Center"
+											text="{i18n>kanban.label6}" />
+										<Text id="prodVolume"
+											class="kanban-text  sapUiTinyMarginTop"
+											text="{/prodVolume}" />
+									</VBox>
+								</f:content>
+							</f:Card>
+							<f:Card class="sapUiTinyMargin"
+								width="33%">
+								<f:content>
+									<VBox renderType="Bare"
+										justifyContent="Center"
+										alignItems="Center"
+										height="6.8rem">
+										<!-- 今日不良累積數量 -->
+										<Title class="kanban-title kanban-title-NC"
+											width="85%"
+											textAlign="Center"
+											text="{i18n>kanban.label7}" />
+										<Text id="ngQty"
+											class="kanban-text sapUiTinyMarginTop"
+											text="{/ngQty}" />
+									</VBox>
+								</f:content>
+							</f:Card>
+							<f:Card class="sapUiTinyMargin"
+								width="33%">
+								<f:content>
+									<VBox renderType="Bare"
+										justifyContent="Center"
+										alignItems="Center"
+										height="6.8rem">
+										<!-- 生產效率(平均) -->
+										<Title class="kanban-title kanban-title-effiency"
+											width="85%"
+											textAlign="Center"
+											text="{i18n>kanban.label8}" />
+										<Text id="prodEfficiency"
+											class="kanban-text sapUiTinyMarginTop Primary "
+											text="{/prodEfficiency}" />
+									</VBox>
+								</f:content>
+							</f:Card>
+						</HBox>
+					</VBox>
+				</f:content>
+			</f:Card>
+			<f:Card class="sapUiTinyMargin"
+				width="99%"
+				height="18rem">
+				<f:content>
+					<viz:VizFrame id="idVizFrame"
+						uiConfig="{
+							applicationSet: 'fiori'
+						}"
+						height="100%"
+						width="100%">
+						<viz:dataset>
+							<viz.data:FlattenedDataset data="{/data}">
+								<viz.data:dimensions>
+									<viz.data:DimensionDefinition name="key"
+										value="{key}"
+										dataType="string" />
+								</viz.data:dimensions>
+								<viz.data:measures>
+									<viz.data:MeasureDefinition name="inProd"
+										value="{inProd}" />
+									<viz.data:MeasureDefinition name="prod"
+										value="{prod}" />
+									<viz.data:MeasureDefinition name="ngProd"
+										value="{ngProd}" />
+								</viz.data:measures>
+							</viz.data:FlattenedDataset>
+						</viz:dataset>
+						<viz:feeds>
+							<viz.feeds:FeedItem uid="valueAxis"
+								type="Measure"
+								values="inProd" />
+							<viz.feeds:FeedItem uid="valueAxis"
+								type="Measure"
+								values="prod" />
+							<viz.feeds:FeedItem uid="valueAxis"
+								type="Measure"
+								values="ngProd" />
+							<viz.feeds:FeedItem uid="categoryAxis"
+								type="Dimension"
+								values="key" />
+						</viz:feeds>
+					</viz:VizFrame>
+				</f:content>
+			</f:Card>
+		</content>
+	</Page>
+</sap.ui.core.mvc:View>

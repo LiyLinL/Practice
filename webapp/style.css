@@ -1,0 +1,22 @@
+.myLabel {
+    padding-bottom: 0rem !important;
+    padding-top: 0rem !important;
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+    justify-content: flex-end !important;
+    display: flex !important;
+    text-align: right;
+    align-items: center;
+    white-space: break-spaces;
+}
+
+.myLabel:not(.notColon) ::after {
+    content: '：';
+}
+
+.myText {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    display: flex !important;
+    align-items: center;
+}

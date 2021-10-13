@@ -1,98 +1,74 @@
 sap.ui.define([
-    'jquery.sap.global',
-    'sap/ui/core/Fragment',
-    "sap/ui/base/Object",
+    'fw/core/BaseController',
     'sap/ui/model/Filter',
-    'sap/ui/model/json/JSONModel',
-    'sap/m/Token'
-], function (jQuery, Fragment, Object, Filter, JSONModel, Token) {
+    'sap/ui/model/json/JSONModel'
+], function (BaseController, Filter, JSONModel) {
     "use strict";
-    return Object.extend("gen.fragment.TableSelectDialog", {
+    return BaseController.extend("fw.fragment.TableSelectDialog", {
         /**
-         * oSource:為該function使用的
-         * oView:為該頁面的view
-         * oModel:為table使用的JSONModel
-         * width:每欄位的寬度 (現無使用)
-         * myfunction:有事件要完成所調用的function
+         * 
+         * @param {} oSource input的物件
+         * @param {} oModel 綁定的json資料
+         * @param {} myfunction 確定後執行的function
          */
-        open: function (oSource, me, oModel, myfunction) {
-            var sInputValue = oSource.getValue();
-            this.me = me; //畫面的view
-            var oView = me.getView();
-            this.inputId = oSource.getId(); //設定input的id
-            var customDatas = oSource.getCustomData(); //取得自訂的數據
+        open: function (oSource, oModel, myfunction) {
+            //input的元件
+            this.oSource = oSource;
+            //確定或點選呼叫的function
             this.myfunction = myfunction;
-            if (customDatas) {
-                for (let i = 0; i < customDatas.length; i++) {
-                    var customData = customDatas[i];
-                    switch (customData.getKey().toUpperCase()) {
-                        case 'FilterKey'.toUpperCase(): //要檢索的key值
-                            this.filterKey = customData.getValue();
-                            break;
-                        case 'callBackKey'.toUpperCase(): //要返回的設定數值
-                            this.callBackKey = customData.getValue();
-                            break;
-                        case 'columns'.toUpperCase(): //取得要設定的欄位字串
-                            this.columnsStr = customData.getValue();
-                            break;
-                        case 'title'.toUpperCase(): //取得彈出框的標題
-                            this.title = customData.getValue();
-                            break;
-                        case 'root'.toUpperCase(): //取得root
-                            this.root = customData.getValue();
-                            break;
-                        case 'otherInput'.toUpperCase(): //取得其他input要設值 例如描述
-                            this.otherInput = customData.getValue();
-                            break;
-                        case 'inputModel'.toUpperCase(): //取得其他input要設值 例如描述
-                            this.inputModel = customData.getValue();
-                            break;
-                        case 'customTitle'.toUpperCase(): //取得其他input要設值 例如描述
-                            this.customTitle = customData.getValue();
-                            break;
-                        case 'multiple'.toUpperCase(): //取得多選設定
-                            this.multiple = customData.getValue() == "true" ? true : false;
-                            break;
-                        case 'selected'.toUpperCase(): //設定全選
-                            this.selected = customData.getValue() == "true" ? true : false;
-                            break;
-                    }
-                }
-            }
+            //過濾用的key
+            this.filterKey = oSource.data("filterKey");
+            //要返回的key
+            this.callBackKey = oSource.data("callBackKey");
+            //欄位設定 key|i18n;...
+            this.columns = oSource.data("columns");
+            //標題i18n
+            this.title = oSource.data("title");
+            //root
+            this.root = oSource.data("root");
+            //設定多選
+            this.multiple = oSource.data("multiple") === "true" ? true : false;
+            //設定全選
+            this.selected = oSource.data("selected") === "true" ? true : false;
             //設定彈出框架構
             if (!this.dialog) { //該彈出框的設定
                 this.dialog = sap.ui.xmlfragment(
-                    "gen.fragment.TableSelectDialog",
+                    "fw.fragment.TableSelectDialog",
                     this
                 );
-                oView.addDependent(this.dialog);
+                //開窗依附在input
+                oSource.addDependent(this.dialog);
             }
-            this.dialog.setModel(oView.getModel("i18n"), "i18n"); //設定彈出框的i18n
-            var oBundle = oView.getModel("i18n").getResourceBundle();
+            //設定開窗的i18n model
+            this.dialog.setModel(oSource.getModel("i18n"), "i18n");
+            //取得i18n
+            var oBundle = oSource.getModel("i18n").getResourceBundle();
             //設定標題
             if (this.title) {
                 this.dialog.setTitle(oBundle.getText("g.select") + oBundle.getText(this.title));
             }
-            if (this.customTitle) {
-                this.dialog.setTitle(this.customTitle);
-            }
-            var column = this.columnsStr.split(";"); //分割欄位
-            this.dialog.destroyColumns(); //銷毀之前的欄位
-            var cell = []
-            if (column.length > 0) {
-                for (let i = 0; i < column.length; i++) {
+            //銷毀之前的欄位
+            this.dialog.destroyColumns();
+            //綁定的欄位資料
+            var cell = [];
+            if (this.columns) {
+                for (let column of this.columns.split(";")) {
+                    let separate = column.split("|");
+                    //標頭的label
+                    let label = new sap.m.Label({
+                        text: oBundle.getText(separate[1])
+                    });
+                    //設定每行的標頭
                     this.dialog.addColumn(new sap.m.Column({
-                            header: new sap.m.Label({ //設定每行的標頭
-                                text: oBundle.getText(column[i].split("|")[1])
-                            })
-                        }
-                        //,width: 可設定寬度
-                    ));
+                        header: label
+                    }));
+                    //欄位綁定的資料
                     cell.push(new sap.m.Text({
-                        text: "{" + column[i].split("|")[0] + "}" //設定每欄位要綁定的資料
+                        text: "{" + separate[0] + "}"
                     }));
                 }
             }
+            //設定table的欄位
             var oTableItems = new sap.m.ColumnListItem({
                 selected: this.selected,
                 cells: cell
@@ -101,17 +77,30 @@ sap.ui.define([
             if (this.dialog.getBinding("items")) {
                 this.dialog.getBinding("items").filter([new Filter(
                     this.filterKey,
-                    sap.ui.model.FilterOperator.Contains, sInputValue
+                    sap.ui.model.FilterOperator.Contains,
+                    this.oSource.getValue()
                 )]);
             }
             //設定root和cell
             this.dialog.bindAggregation("items", this.root, oTableItems);
             //設定多選
             this.dialog.setMultiSelect(this.multiple);
-            //設定model
+            //設定開窗的model
             this.dialog.setModel(new JSONModel(oModel));
+            //開啟彈出框
             this.dialog.open();
-            document.getElementById(this.dialog.sId + "-cancel-inner").className = "sapMBtnEmphasized sapMBtnHoverable sapMBtnInner sapMBtnText sapMFocusable";
+            //設定確定或取消的樣式
+            if (this.multiple) {
+                document.getElementById(this.dialog.sId + "-ok-inner").className = "sapMBtnEmphasized sapMBtnHoverable sapMBtnInner sapMBtnText sapMFocusable";
+            } else {
+                document.getElementById(this.dialog.sId + "-cancel-inner").className = "sapMBtnEmphasized sapMBtnHoverable sapMBtnInner sapMBtnText sapMFocusable";
+            }
+            //回傳開窗物件
+            return this.dialog;
+        },
+        //回傳table物件
+        getTable: function () {
+            return this.dialog.mAggregations._dialog.mAggregations.content[1];
         },
         /**
          * 設定寬度
@@ -136,48 +125,32 @@ sap.ui.define([
          * 確定
          */
         confirm: function (oEvent) {
-            var input = this.me.getView().byId(this.inputId);
-            if (input == null) {
-                input = sap.ui.getCore().byId(this.inputId);
+            //取得選擇的資料
+            var data = oEvent
+                .getParameter("selectedContexts")
+                .map(o => o.getObject());
+            // 多選時設定input
+            if (this.multiple) {
+                this.callBackMulti(this.oSource, data);
             }
-            var context = oEvent.getParameter("selectedContexts");
-            if (context && context.length) {
-                var data = context.map(
-                    function (context) {
-                        return context.getObject();
-                    });
-
-                const key = this.callBackKey;
-                if (this.multiple) { // 多選Input
-                    var tokens = [];
-                    tokens = data.map(function (values) {
-                        return new Token({
-                            text: values[key]
-                        })
-                    })
-                    input.setTokens(tokens); // 返回多選Values
-                } else {
-                    input.setValue(data[0][this.callBackKey]); //設定要反回的input值
-                }
-                if (this.myfunction) { //調用程式
-                    this.myfunction(data[0]);
-                }
-                if (this.inputModel == "true") {
-                    input.setModel(new JSONModel(data[0]));
-                }
-                if (this.otherInput) {
-                    var otherInput = this.otherInput.split(";");
-                    for (var i = 0; i < otherInput.length; i++) { //設定其他input的value
-                        input = otherInput[i].split("|");
-                        var inputtype = this.oView.byId(input[1]).__proto__.hasOwnProperty("setText");
-                        if (inputtype) {
-                            this.oView.byId(input[1]).setText(data[0][input[0]]);
-                        } else {
-                            this.oView.byId(input[1]).setValue(data[0][input[0]]);
-                        }
-                    }
-                }
+            //設定單選input
+            else {
+                this.oSource.setValue(data[0][this.callBackKey]);
             }
+            //確定後執行的function
+            if (this.myfunction) {
+                this.myfunction(this.multiple ? data : data[0]);
+            }
+        },
+        //多選的返回動作
+        callBackMulti: function (input, data) {
+            var tokens = input.getAggregation('tokenizer').getBinding('tokens');
+            var prefixPath = '';
+            if (input.sParentAggregationName == 'cells') {
+                prefixPath = tokens.oContext.sPath + "/";
+            }
+            var path = prefixPath ? prefixPath + tokens.sPath : tokens.sPath;
+            tokens.oModel.setProperty(path, data);
         }
     });
 });
