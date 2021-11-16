@@ -1,5 +1,12 @@
 sap.ui.define(
-    ['sap/ui/core/UIComponent', 'gen/core/base', 'gen/ajax', 'gen/core/set'],
+    [
+        'sap/ui/core/UIComponent',
+        'gen/core/base',
+        'gen/ajax',
+        'gen/core/set',
+        'gen/utils/excelJS.min',
+        'gen/utils/FileSaver'
+    ],
     function (UIComponent) {
         'use strict';
         return UIComponent.extend('gen.Component', {
