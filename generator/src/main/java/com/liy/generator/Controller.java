@@ -7,7 +7,6 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.config.JmsListenerEndpointRegistry;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +14,6 @@ import java.io.*;
 import java.util.Base64;
 
 @RestController
-@CrossOrigin(value = { "*" })
 public class Controller {
 
     @Autowired
