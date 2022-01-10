@@ -55,7 +55,7 @@ public class GeneratorApplicationTests {
         Map<String, String> map = new HashMap<>();
         map.put(zPath, zCreate);
         map.put(vPath, vCreate);
-        map.forEach(( k, v ) -> {
+        map.forEach((k, v) -> {
             try {
                 create(k, v);
             } catch (IOException e) {
@@ -64,7 +64,7 @@ public class GeneratorApplicationTests {
         });
     }
 
-    public static void create( String path, String pathC ) throws IOException {
+    public static void create(String path, String pathC) throws IOException {
         String createPath = pathC.replaceAll("\\\\\\w*\\.\\w*", "");
         File cPath = new File(createPath);
         if (!cPath.exists()) { // Check資料夾存在
@@ -116,11 +116,11 @@ public class GeneratorApplicationTests {
         }
     }
 
-    public static void asc( String[] strs, boolean asc ) {
+    public static void asc(String[] strs, boolean asc) {
         List<String> fileList = Arrays.asList(strs);
         Collections.sort(fileList, new Comparator<String>() {
             @Override
-            public int compare( String o1, String o2 ) {
+            public int compare(String o1, String o2) {
                 if (asc) {
                     return o1.compareTo(o2);
                 } else {
@@ -140,10 +140,10 @@ public class GeneratorApplicationTests {
     public void testController() throws Exception {
         // perform执行一个请求
         mvc.perform(MockMvcRequestBuilders.get("/test") // 請求方法
-                .contentType(MediaType.ALL) // 發送數據格式
-                .accept(MediaType.ALL_VALUE) // 接收數據格式
-                .session(session) // session
-        ).andExpect(MockMvcResultMatchers.status().isOk()) // 请求的状态响应是否为200，如果不是则抛异常
+                        .contentType(MediaType.ALL) // 發送數據格式
+                        .accept(MediaType.ALL_VALUE) // 接收數據格式
+                        .session(session) // session
+                ).andExpect(MockMvcResultMatchers.status().isOk()) // 请求的状态响应是否为200，如果不是则抛异常
                 .andDo(MockMvcResultHandlers.print()) // 结果处理，输出整个响应结果信息
                 .andReturn();
     }
@@ -166,11 +166,11 @@ public class GeneratorApplicationTests {
             }
 
             @SuppressWarnings("unused")
-            public HttpDeleteWithBody( URI uri ) {
+            public HttpDeleteWithBody(URI uri) {
                 setURI(uri);
             }
 
-            public HttpDeleteWithBody( String uri ) {
+            public HttpDeleteWithBody(String uri) {
                 setURI(URI.create(uri));
             }
 
@@ -211,6 +211,6 @@ public class GeneratorApplicationTests {
     }
 
     @Test
-    public void te() throws IOException {
+    public void testMethod() {
     }
 }

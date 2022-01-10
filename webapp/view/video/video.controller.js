@@ -83,22 +83,53 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], function (Controller) {
                     );
                     break;
                 case 'export':
+                    var me = this;
                     var wb = new ExcelJS.Workbook();
+                    var blob;
                     var ws = wb.addWorksheet('sheet1');
 
-                    const imageId2 = wb.addImage({
-                        base64: imgData,
-                        extension: 'jpeg'
-                    });
+                    // const imageId2 = wb.addImage({
+                    //     base64: imgData,
+                    //     extension: 'jpeg'
+                    // });
 
-                    ws.addImage(imageId2, 'A1:B2');
+                    // ws.addImage(imageId2, 'A1:B2');
+                    new ajax('http://localhost').get(
+                        `/test/excel`,
+                        'text',
+                        function (res) {
+                            //解碼
+                            var decodedPdfContent = atob(res);
+                            //建出uint8陣列
+                            var byteArray = new Uint8Array(decodedPdfContent.length);
+                            for (var i = 0; i < decodedPdfContent.length; i++) {
+                                byteArray[i] = decodedPdfContent.charCodeAt(i);
+                            }
+                            //輸出Blob
+                            blob = new Blob([byteArray.buffer], {
+                                type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,'
+                            });
+
+                            // saveAs(blob, 'test.xlsx');
+                        },
+                        function (err) {
+                            console.log(err);
+                        }
+                    );
+
+                    async function readExcel() {
+                        //等待解析完畢
+                        await wb.xlsx.load(blob);
+                    }
+
+                    // readExcel();
 
                     async function doing() {
                         const buffer = await wb.xlsx.writeBuffer();
                         const fileType =
                             'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
                         const blob = new Blob([buffer], { type: fileType });
-                        saveAs(blob, name + '.xlsx');
+                        saveAs(blob, 'xxxxx.xlsx');
                     }
                     doing();
 

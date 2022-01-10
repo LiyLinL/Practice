@@ -15,28 +15,27 @@
 				background-color: white;
 			}
 			.item-text {
-  				font-size: 1rem !important;
-  				padding: 3px;
-  				border-radius: 3px;
+				font-size: 1rem !important;
+				padding: 3px;
+				border-radius: 3px;
 			}
 			.kanban-title,
 			.kanban-text {
-  				font-size: 1.5rem !important;
-  				padding: 5px;
-  				border-radius: 5px;
+				font-size: 1.5rem !important;
+				padding: 5px;
+				border-radius: 5px;
 			}
 			.kanban-title {
-  				/* border: 1px solid rgb(14, 11, 8); */
- 				background-color: rgb(255, 156, 27);
+				background-color: rgb(255, 156, 27);
 			}
 			.kanban-title-production {
-  				background-color: rgb(88, 153, 218);
+				background-color: #5899DA;
 			}
 			.kanban-title-NC {
-  				background-color: rgb(246, 99, 100);
+				background-color: #F66364;
 			}
-			.kanban-title-effiency {
-  				background-color: rgb(113, 201, 137);
+			.kanban-title-efficiency {
+				background-color: #71C989;
 			}
 		</html:style>
 		<customHeader>
@@ -188,7 +187,7 @@
 										alignItems="Center"
 										height="6.8rem">
 										<!-- 生產效率(平均) -->
-										<Title class="kanban-title kanban-title-effiency"
+										<Title class="kanban-title kanban-title-efficiency"
 											width="85%"
 											textAlign="Center"
 											text="{i18n>kanban.label8}" />

@@ -1,0 +1,33 @@
+<sap.ui.core.mvc:View controllerName="gen.view.tabBar.tabBar"
+	xmlns="sap.m"
+	xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:sap.ui.core.mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.f"
+	displayBlock="true">
+	<Panel class="sapUiSizeCompact no-border">
+		<html:style>
+		    .no-border .sapMPanelContent {
+				border-bottom: 0px;
+			}
+		</html:style>
+
+		<content>
+			<VBox renderType="Bare"
+				width="100%">
+				<FlexBox renderType="Bare"
+					alignItems="Center"
+					alignContent="Center"
+					class="sapUiSmallMargin">
+					<Label class="myLabel"
+						vAlign="Middle"
+						text="{i18n>kanban.label1}"/>
+					<Input id="ins"
+						value=""/>
+				</FlexBox>
+				<HBox/>
+			</VBox>
+		</content>
+	</Panel>
+
+</sap.ui.core.mvc:View>

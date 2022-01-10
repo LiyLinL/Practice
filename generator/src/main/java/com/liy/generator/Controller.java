@@ -1,5 +1,6 @@
 package com.liy.generator;
 
+import com.liy.generator.service.ServiceTest;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -12,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.*;
 import java.util.Base64;
+import java.util.Date;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 @RestController
 public class Controller {
@@ -60,5 +64,24 @@ public class Controller {
         wb.write(bos);
         bos.close();
         return Base64.getEncoder().encode(bos.toByteArray());
+    }
+
+    @Autowired
+    private ServiceTest serviceTest;
+
+    @GetMapping("test/async")
+    public Integer testasync() throws ExecutionException, InterruptedException {
+        System.out.println("start    " + new Date());
+//        System.out.println(serviceTest.execute01());
+        int i = serviceTest.execute01();
+        System.out.println(i);
+//        Future<Integer> f = serviceTest.execute01AsyncWithFuture();
+//        System.out.println(f.get());
+//        serviceTest.execute02();
+        Future<Integer> f2 = serviceTest.execute02AsyncWithFuture();
+
+        System.out.println("end    " + new Date());
+
+        return i;
     }
 }

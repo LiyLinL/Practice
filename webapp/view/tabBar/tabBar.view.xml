@@ -1,0 +1,59 @@
+<mvc:View controllerName="gen.view.tabBar.tabBar"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:sap.ui.core.mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+    <Page title="Tab Bar"
+        class="sapUiSizeCompact test">
+        <html:style>
+        .test.sapMPage > section {
+            top: 2.5rem;
+        }
+        </html:style>
+        <customHeader>
+            <Bar>
+                <contentLeft>
+                    <Button text="A"
+                        press="test"></Button>
+                </contentLeft>
+            </Bar>
+        </customHeader>
+        <content>
+            <IconTabBar id="tabBar"
+                applyContentPadding="false"
+                backgroundDesign="Transparent"
+                class="iconTabContent"
+                headerBackgroundDesign="Solid"
+                expandable="false"
+                headerMode="Inline"
+                tabDensityMode="Compact">
+                <items>
+                    <IconTabFilter icon="sap-icon://hint"
+                        key="info">
+                        <content>
+                            <mvc:XMLView id="kanban"
+                                viewName="gen.view.tabBar.kanban" />
+                        </content>
+                    </IconTabFilter>
+                    <IconTabFilter icon="sap-icon://attachment"
+                        key="attachments">
+                        <FlexBox height="100%"
+                            renderType="Bare">
+                            <Text text="Attachments go here ..." />
+                        </FlexBox>
+                    </IconTabFilter>
+                    <IconTabFilter icon="sap-icon://notes"
+                        key="notes">
+                        <Text text="Notes go here ..." />
+                    </IconTabFilter>
+                    <IconTabFilter icon="sap-icon://group"
+                        key="people">
+                        <Text text="People content goes here ..." />
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+    </Page>
+</mvc:View>

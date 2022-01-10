@@ -8,10 +8,10 @@
 		contentWidth="65%"
 		class="sapUiSizeCompact">
 		<html:style>
-		.borderBottom {
-			border-bottom: solid #BEBEBE;
-			padding-bottom: 15px;
-		}
+			.borderBottom {
+				border-bottom: solid #BEBEBE;
+				padding-bottom: 15px;
+			}
 		</html:style>
 		<customHeader>
 			<Bar class="title-midle">
@@ -33,7 +33,7 @@
 						required="true"
 						text="{i18n>g.site}" />
 					<Label vAlign="Middle"
-						text="{/site}"/>
+						text="{/site}" />
 				</FlexBox>
 				<FlexBox class="sapUiTinyMarginBottom"
 					alignItems="Center"
@@ -57,7 +57,7 @@
 						textAlign="Right"
 						width="8rem"
 						required="true"
-						text="{i18n>kanban.label1}"/>
+						text="{i18n>kanban.label1}" />
 					<Input width="100%"
 						showValueHelp="true"
 						valueHelpRequest="itemDialog"
@@ -71,9 +71,9 @@
 					<Label class="myLabel sapUiLargeMarginBegin"
 						text="{i18n>kanban.label2}"
 						vAlign="Middle"
-						textAlign="Right"/>
+						textAlign="Right" />
 					<Label vAlign="Middle"
-						text="{/setItemDesc}"/>
+						text="{/setItemDesc}" />
 				</FlexBox>
 				<!-- 現場訂單 -->
 				<FlexBox class="sapUiTinyMarginBottom"
@@ -83,11 +83,24 @@
 						vAlign="Middle"
 						textAlign="Right"
 						width="8rem"
-						text="{i18n>kanban.label15}"/>
-					<Input width="100%"
+						text="{i18n>kanban.label15}" />
+					<MultiInput width="100%"
 						showValueHelp="true"
-						valueHelpRequest="openWindowOne"
-						value="{/setSo}" />
+						valueHelpRequest="orderDialog"
+						tokenUpdate="tokenUpdate"
+						submit="addToken"
+						cd:title="title"
+						cd:filterKey="item"
+						cd:callBackKey="item"
+						cd:columns="item|kanban.label1;order|kanban.label15;status|g.releasable"
+						cd:root="/"
+						cd:multiple="true"
+						tokens="{/setSo}">
+						<tokens>
+							<Token key="{item}"
+								text="{item}"/>
+						</tokens>
+					</MultiInput>
 				</FlexBox>
 			</VBox>
 			<VBox class="sapUiSmallMarginTop">
@@ -100,14 +113,14 @@
 						groupName="set"
 						selected="true"
 						select="isAuto"
-						class="sapUiLargeMarginBegin"></RadioButton>
+						class="sapUiLargeMarginBegin" />
 					<!-- 刷新頻率 -->
 					<Label class="myLabel sapUiLargeMarginBegin"
 						vAlign="Middle"
 						textAlign="Right"
 						width="21.5rem"
-						text="{i18n>kanban.label18}"/>
-					<Input value="{/setRefreshFreq}" />
+						text="{i18n>kanban.label18}" />
+					<Input value="{/setRefreshFreq}"/>
 				</FlexBox>
 				<FlexBox alignItems="Center"
 					alignContent="End"
@@ -116,7 +129,7 @@
 					<RadioButton id="manual"
 						text="{i18n>kanban.label17}"
 						groupName="set"
-						class="sapUiLargeMarginBegin"></RadioButton>
+						class="sapUiLargeMarginBegin" />
 				</FlexBox>
 			</VBox>
 		</content>

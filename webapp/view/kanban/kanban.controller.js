@@ -7,7 +7,7 @@ sap.ui.define(
                 var me = this;
                 var oView = this.getView();
 
-                // 更改畫面配色
+                // 更改當前畫面配色
                 sap.ui.getCore().applyTheme('sap_fiori_3_dark');
 
                 var oData = this.setModel({

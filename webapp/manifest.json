@@ -104,6 +104,11 @@
                     "name": "kanban",
                     "pattern": "kanban:?req:",
                     "target": "kanban"
+                },
+                {
+                    "name": "tabBar",
+                    "pattern": "tabBar:?req:",
+                    "target": "tabBar"
                 }
             ],
             "targets": {
@@ -128,6 +133,9 @@
                 },
                 "kanban": {
                     "viewName": "view.kanban.kanban"
+                },
+                "tabBar": {
+                    "viewName": "view.tabBar.tabBar"
                 }
             }
         }
