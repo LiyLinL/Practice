@@ -3,6 +3,7 @@ package com.liy.generator;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 @MapperScan({ "com.liy.generator.mapper" })
 @EnableAsync
 @RestController
+@ServletComponentScan(basePackages = { "com.liy" })
 public class GeneratorApplication {
 
     private static String[] args;
@@ -30,7 +32,7 @@ public class GeneratorApplication {
     @GetMapping("restart")
     public void restart() {
         ExecutorService threadPool = new ThreadPoolExecutor(1, 1, 0,
-                TimeUnit.SECONDS, new ArrayBlockingQueue<>(1), new ThreadPoolExecutor.DiscardOldestPolicy());
+                                                            TimeUnit.SECONDS, new ArrayBlockingQueue<>(1), new ThreadPoolExecutor.DiscardOldestPolicy());
 
         threadPool.execute(() -> {
             context.close();
