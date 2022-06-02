@@ -5,7 +5,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd"
         >
 <generatorConfiguration >
-    <properties resource="config/generatorConfig.properties" />
+    <properties resource="config/application.properties" />
     <!-- 配置数据源和生成的代码所存放的位置 -->
     <context id="context" >
         <!-- 指定生成的java文件的编码,没有直接生成到项目时中文可能会乱码 -->
