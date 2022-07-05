@@ -83,6 +83,8 @@ public class GeneratorApplicationTests {
 //            }
 //        }
 
+        String test = "";
+
         int number = 26;
         // 數字轉字母
         number--;
