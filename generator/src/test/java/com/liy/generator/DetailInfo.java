@@ -4,11 +4,22 @@ import java.util.List;
 
 public class DetailInfo {
 
+    private int seq;
+
     private String LEVEL;
 
     private String name;
 
+    private String value;
     private List<DetailInfo> detailInfoList;
+
+    public DetailInfo() {
+    }
+
+    public DetailInfo( int seq, String value ) {
+        this.seq = seq;
+        this.value = value;
+    }
 
     public DetailInfo( String LEVEL, String name ) {
         this.LEVEL = LEVEL;
@@ -37,5 +48,21 @@ public class DetailInfo {
 
     public void setDetailInfoList( List<DetailInfo> detailInfoList ) {
         this.detailInfoList = detailInfoList;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue( String value ) {
+        this.value = value;
+    }
+
+    public int getSeq() {
+        return seq;
+    }
+
+    public void setSeq( int seq ) {
+        this.seq = seq;
     }
 }

@@ -1,6 +1,5 @@
 package com.liy.generator;
 
-import com.liy.generator.jms.jmsService;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.PDPage;
@@ -9,8 +8,13 @@ import org.apache.pdfbox.text.PDFTextStripper;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.util.Units;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -32,25 +36,37 @@ import java.util.stream.Collectors;
 @EnableAsync
 public class GeneratorApplicationTests {
 
-    @Autowired
-    private jmsService jmsService;
-
     @Test
     public void jms() throws InterruptedException, IOException, JMSException {
     }
 
+    @Autowired
+    private BeanFactory beanFactory;
+
     @Test
-    public void testMain() {
+    public void testMain() throws IOException {
+//        InputStream inputStream = Files.newInputStream(new File("C:\\Users\\Administrator\\Desktop\\sap_Test\\test.xls").toPath());
+//        Workbook workbook = WorkbookFactory.create(inputStream);
+//        Sheet s = workbook.getSheetAt(0);
+//        String sn = s.getSheetName();
+
+//        Charset charset = Charset.forName("BIG5");
+//        List<String> txtList = Files.lines(Paths.get("C:\\Users\\Administrator\\Desktop\\sap_Test\\big5.txt"), charset)
+//                .flatMap(line -> Arrays.stream(line.trim().split("\n")))
+//                .collect(Collectors.toList());
+
+//        try (InputStream ip = Files.newInputStream(new File("C:\\Users\\Administrator\\Desktop\\sap_Test\\test.xls").toPath())) {
+//
+//        }
+
+        String a = "asdb" +  TestEnum.OK;
+        System.out.println(a);
+
+        String d = "";
     }
 
     @Test
     public void test() {
-//        String path = "\\\\192.168.137.239\\c$\\test";
-//        File file = new File(path);
-//        File[] files = file.listFiles();
-//
-//        System.out.println(file.isDirectory());
-
 //       System.out.println( String.format("QCPlanBO:%s,%s,%s", "100", "qcPlan", "revision"));
 
         StringBuilder letter = new StringBuilder();
@@ -161,66 +177,67 @@ public class GeneratorApplicationTests {
 
     @Test
     public void test2() throws IOException {
-//        File file = new File("C:\\Users\\Administrator\\Desktop\\C1.html");
-//        Document doc = Jsoup.parse(file, "UTF-8");
-//
-//        Elements el = doc.getElementsByTag("tr");
-//        for (Element e : el) {
-//            System.out.println(e.text());
-//        }
+        File file = new File("C:\\Users\\Administrator\\Desktop\\sap_Test\\test.html");
+        Document doc = Jsoup.parse(file, "UTF-8");
+
+        Elements table = doc.select("table");
+
+        for (Element e : table.first().getElementsByTag("tr")) {
+            System.out.println(e.text());
+        }
 //
 //        String debug = "";
 //        List<String> list = new ArrayList<>(Arrays.asList("01-10", "01-12", "02-11", "01-02", "02-01", "01-20", "01-21", "02-04", "01-05", "02-19"));
 //        list.stream().sorted().forEach(System.out::println);
 
         List<DetailInfo> detailInfoList = new ArrayList<>();
-        detailInfoList.add(new DetailInfo("1", "TOP"));
-        detailInfoList.add(new DetailInfo("1-1", "A"));
-        detailInfoList.add(new DetailInfo("1-1-1", "A"));
-        detailInfoList.add(new DetailInfo("1-1-2", "A"));
-        detailInfoList.add(new DetailInfo("1-2", "A"));
-        detailInfoList.add(new DetailInfo("1-2-1", "A"));
-        detailInfoList.add(new DetailInfo("1-2-1-1", "A"));
-        detailInfoList.add(new DetailInfo("1-2-1-2", "A"));
-        detailInfoList.add(new DetailInfo("2", "A"));
-        detailInfoList.add(new DetailInfo("2-1", "A"));
-        detailInfoList.add(new DetailInfo("2-1-1", "A"));
-
-        int topIndex = 0;
-        List<DetailInfo> results = new ArrayList<>();
-        List<DetailInfo> subList = new ArrayList<>();
-
-        int max = detailInfoList.size();
-        for (int j = 0; j < max; j++) {
-            DetailInfo info = detailInfoList.get(j);
-            String level = info.getLEVEL();
-
-
-            // 找圖號
-
-            if (!level.contains("-")) {
-                // 最上層
-                results.add(info);
-
-                if (subList.size() > 0) {
-                    DetailInfo topInfo = results.get(topIndex);
-                    this.getSub(subList, topInfo);
-                }
-
-                subList = new ArrayList<>();
-                topIndex = j;
-            } else {
-                subList.add(info);
-            }
-        }
-
-        // 最後一次遞迴
-        if (subList.size() > 0) {
-            DetailInfo topInfo = results.get(results.size() - 1);
-            this.getSub(subList, topInfo);
-        }
-
-        String debug = "0";
+//        detailInfoList.add(new DetailInfo("1", "TOP"));
+//        detailInfoList.add(new DetailInfo("1-1", "A"));
+//        detailInfoList.add(new DetailInfo("1-1-1", "A"));
+//        detailInfoList.add(new DetailInfo("1-1-2", "A"));
+//        detailInfoList.add(new DetailInfo("1-2", "A"));
+//        detailInfoList.add(new DetailInfo("1-2-1", "A"));
+//        detailInfoList.add(new DetailInfo("1-2-1-1", "A"));
+//        detailInfoList.add(new DetailInfo("1-2-1-2", "A"));
+//        detailInfoList.add(new DetailInfo("2", "A"));
+//        detailInfoList.add(new DetailInfo("2-1", "A"));
+//        detailInfoList.add(new DetailInfo("2-1-1", "A"));
+//
+//        int topIndex = 0;
+//        List<DetailInfo> results = new ArrayList<>();
+//        List<DetailInfo> subList = new ArrayList<>();
+//
+//        int max = detailInfoList.size();
+//        for (int j = 0; j < max; j++) {
+//            DetailInfo info = detailInfoList.get(j);
+//            String level = info.getLEVEL();
+//
+//
+//            // 找圖號
+//
+//            if (!level.contains("-")) {
+//                // 最上層
+//                results.add(info);
+//
+//                if (subList.size() > 0) {
+//                    DetailInfo topInfo = results.get(topIndex);
+//                    this.getSub(subList, topInfo);
+//                }
+//
+//                subList = new ArrayList<>();
+//                topIndex = j;
+//            } else {
+//                subList.add(info);
+//            }
+//        }
+//
+//        // 最後一次遞迴
+//        if (subList.size() > 0) {
+//            DetailInfo topInfo = results.get(results.size() - 1);
+//            this.getSub(subList, topInfo);
+//        }
+//
+//        String debug = "0";
     }
 
     private void getSub( List<DetailInfo> subList, DetailInfo detailInfo ) {
