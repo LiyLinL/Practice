@@ -19,90 +19,64 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.imageio.ImageIO;
-import javax.jms.JMSException;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @EnableAsync
 public class GeneratorApplicationTests {
 
-    @Test
-    public void jms() throws InterruptedException, IOException, JMSException {
-    }
-
     @Autowired
     private BeanFactory beanFactory;
 
     @Test
     public void testMain() throws IOException {
-//        InputStream inputStream = Files.newInputStream(new File("C:\\Users\\Administrator\\Desktop\\sap_Test\\test.xls").toPath());
-//        Workbook workbook = WorkbookFactory.create(inputStream);
-//        Sheet s = workbook.getSheetAt(0);
-//        String sn = s.getSheetName();
+        String filePath = "C:\\Users\\Administrator\\Desktop\\sap_Test\\test2.xls";
+        InputStream inputStream = Files.newInputStream(new File("C:\\Users\\Administrator\\Desktop\\sap_Test\\ReturnMaterialExport.xls").toPath());
+        Workbook workbook = WorkbookFactory.create(inputStream);
+        Sheet s = workbook.getSheetAt(0);
+        Sheet s2 = workbook.getSheetAt(1);
+
+//        HSSFSheet sheet = (HSSFSheet) workbook.getSheetAt(0);
+//        List<HSSFShape> list = sheet.getDrawingPatriarch().getChildren();
+//
+//        Map<String, Object> map = new HashMap<>();
+//
+//        for (HSSFShape shape : list) {
+//            if (shape instanceof HSSFPicture) {
+//                HSSFPicture picture = (HSSFPicture) shape;
+//                HSSFClientAnchor cAnchor = picture.getClientAnchor();
+//                HSSFPictureData pdata = picture.getPictureData();
+//                map.put("pictureAnchor", cAnchor);
+//                map.put("pictureByteArray", pdata.getData());
+//                map.put("pictureType", pdata.getPictureType());
+//            }
+//        }
+//
+//        HSSFSheet newSheet = (HSSFSheet) workbook.createSheet();
+//        HSSFPatriarch drawing = newSheet.createDrawingPatriarch();
+//
+//        drawing.createPicture((HSSFClientAnchor) map.get("pictureAnchor"),
+//                              workbook.addPicture((byte[]) map.get("pictureByteArray"),
+//                                                  Integer.parseInt(map.get("pictureType").toString())));
+//
+//        FileOutputStream fileOut = new FileOutputStream(filePath);
+//        workbook.write(fileOut);
 
 //        Charset charset = Charset.forName("BIG5");
-//        List<String> txtList = Files.lines(Paths.get("C:\\Users\\Administrator\\Desktop\\sap_Test\\big5.txt"), charset)
+//        List<String> txtList = Files.lines(Paths.get("C:\\Users\\Administrator\\Desktop\\sap_Test\\all.txt"))
 //                .flatMap(line -> Arrays.stream(line.trim().split("\n")))
 //                .collect(Collectors.toList());
 
 //        try (InputStream ip = Files.newInputStream(new File("C:\\Users\\Administrator\\Desktop\\sap_Test\\test.xls").toPath())) {
 //
 //        }
-
-        String a = "asdb" +  TestEnum.OK;
-        System.out.println(a);
-
-        String d = "";
     }
 
-    @Test
-    public void test() {
-//       System.out.println( String.format("QCPlanBO:%s,%s,%s", "100", "qcPlan", "revision"));
-
-        StringBuilder letter = new StringBuilder();
-        // 字母轉數字
-//        int length = letter.length() - 1;
-//        int sum = 0;
-//        if (letter.toString().matches("^[A-Z]+$")) {
-//            for (int i = 0; i < letter.length(); i++) {
-//                char c = letter.charAt(i);
-//                int ordinal = c - 64;
-//
-//                sum += ordinal * Math.pow(26, length);
-//                length--;
-//            }
-//        }
-
-        String test = "";
-
-        int number = 26;
-        // 數字轉字母
-        number--;
-        do {
-            if (letter.length() > 0) {
-                number--;
-            }
-            // A:65
-            char c = (char) (number % 26 + 65);
-            letter.insert(0, c);
-            number = (number - number % 26) / 26;
-        } while (number > 0);
-
-
-        System.out.println(letter);
-    }
-
-    @Transactional
     @Test
     public void test1() throws Exception {
         BufferedImage bufferedImg = ImageIO.read(new File("C:\\Users\\Administrator\\Desktop\\test\\111.png"));
@@ -183,98 +157,10 @@ public class GeneratorApplicationTests {
         Document doc = Jsoup.parse(file, "UTF-8");
 
         Elements table = doc.select("table");
+        Elements tr =  table.first().getElementsByTag("tr");
 
-        for (Element e : table.first().getElementsByTag("tr")) {
+        for (Element e : tr) {
             System.out.println(e.text());
-        }
-//
-//        String debug = "";
-//        List<String> list = new ArrayList<>(Arrays.asList("01-10", "01-12", "02-11", "01-02", "02-01", "01-20", "01-21", "02-04", "01-05", "02-19"));
-//        list.stream().sorted().forEach(System.out::println);
-
-        List<DetailInfo> detailInfoList = new ArrayList<>();
-//        detailInfoList.add(new DetailInfo("1", "TOP"));
-//        detailInfoList.add(new DetailInfo("1-1", "A"));
-//        detailInfoList.add(new DetailInfo("1-1-1", "A"));
-//        detailInfoList.add(new DetailInfo("1-1-2", "A"));
-//        detailInfoList.add(new DetailInfo("1-2", "A"));
-//        detailInfoList.add(new DetailInfo("1-2-1", "A"));
-//        detailInfoList.add(new DetailInfo("1-2-1-1", "A"));
-//        detailInfoList.add(new DetailInfo("1-2-1-2", "A"));
-//        detailInfoList.add(new DetailInfo("2", "A"));
-//        detailInfoList.add(new DetailInfo("2-1", "A"));
-//        detailInfoList.add(new DetailInfo("2-1-1", "A"));
-//
-//        int topIndex = 0;
-//        List<DetailInfo> results = new ArrayList<>();
-//        List<DetailInfo> subList = new ArrayList<>();
-//
-//        int max = detailInfoList.size();
-//        for (int j = 0; j < max; j++) {
-//            DetailInfo info = detailInfoList.get(j);
-//            String level = info.getLEVEL();
-//
-//
-//            // 找圖號
-//
-//            if (!level.contains("-")) {
-//                // 最上層
-//                results.add(info);
-//
-//                if (subList.size() > 0) {
-//                    DetailInfo topInfo = results.get(topIndex);
-//                    this.getSub(subList, topInfo);
-//                }
-//
-//                subList = new ArrayList<>();
-//                topIndex = j;
-//            } else {
-//                subList.add(info);
-//            }
-//        }
-//
-//        // 最後一次遞迴
-//        if (subList.size() > 0) {
-//            DetailInfo topInfo = results.get(results.size() - 1);
-//            this.getSub(subList, topInfo);
-//        }
-//
-//        String debug = "0";
-    }
-
-    private void getSub( List<DetailInfo> subList, DetailInfo detailInfo ) {
-        String keyLevel = detailInfo.getLEVEL() + "-";
-
-        int maxSize = subList.size() - 1;
-        for (int i = maxSize; i >= 0; i--) {
-            DetailInfo sub = subList.get(i);
-            String subLevel = sub.getLEVEL();
-
-            String key = subLevel.replaceFirst(keyLevel, "");
-            if (!key.contains("-")) {
-                if (detailInfo.getDetailInfoList() == null) {
-                    detailInfo.setDetailInfoList(new ArrayList<>());
-                }
-                detailInfo.getDetailInfoList().add(sub);
-                subList.remove(i);
-            }
-        }
-
-        if (subList.size() > 0) {
-            if (detailInfo.getDetailInfoList() != null) {
-                // 排序子階
-                detailInfo.setDetailInfoList(detailInfo.getDetailInfoList().stream()
-                                                     .sorted(Comparator.comparing(sort -> {
-                                                         String key = sort.getLEVEL().replace("-", "");
-                                                         return String.format("%010d", Integer.valueOf(key));
-                                                     }))
-                                                     .collect(Collectors.toList()));
-
-                List<DetailInfo> loopList = detailInfo.getDetailInfoList();
-                for (DetailInfo subInfo : loopList) {
-                    getSub(subList, subInfo);
-                }
-            }
         }
     }
 
